@@ -39,9 +39,8 @@
   <Producers>
     <Producer ProducerID="PD-001">
       <ProducerName>Nhà Xuất Bản Giáo Dục</ProducerName>
-      <ProducerAddress>NULL</ProducerAddress>
-      <ProducerContact>
-      </ProducerContact>
+      <ProducerAddress>Hà Nội</ProducerAddress>
+      <ProducerContact>Chưa có</ProducerContact>
     </Producer>
     <Producer ProducerID="PD-002">
       <ProducerName>Nhà Xuất Bản Trẻ</ProducerName>

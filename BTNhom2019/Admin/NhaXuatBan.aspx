@@ -1,27 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NhaXuatBan.aspx.cs" Inherits="BTNhom2019.Admin.NhaXuatBan" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Admin/AdminLayout.Master" CodeBehind="NhaXuatBan.aspx.cs" Inherits="BTNhom2019.Admin.NhaXuatBan" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Quản lý Nhà Xuất Bản</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        #form {
+        .page-nxb {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .grid-view {
-            width: 80%;
+            width: 100%;
+            height: 250px;
+            margin: 0 auto;
             font-size: 1.3rem;
         }
 
@@ -48,18 +39,19 @@
             padding: 5px;
         }
     </style>
-</head>
-<body>
-    <h1> Quản lý Nhà Xuất Bản</h1>
-    <form id="form" runat="server">
-        <div style="width: 100%">
+</asp:Content>
+<asp:Content ContentPlaceHolderID="Content" runat="server">
+    <div class="page-nxb">
+        <h1> Quản lý Nhà Xuất Bản</h1>
+        <div style="width:80%; height:250px; overflow-y: scroll;">
             <asp:GridView ID="grdNhaXuatBan" runat="server" CssClass="grid-view"
-                OnSelectedIndexChanged="grdNhaXuatBan_SelectedIndexChanged" HorizontalAlign="Center">
+                OnSelectedIndexChanged="grdNhaXuatBan_SelectedIndexChanged" CellPadding="5">
                 <Columns>
-                <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
+                    <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
                 </Columns>
             </asp:GridView>
         </div>
+        
         <div class="edit-box">
             <h2>Thông tin Nhà Xuất Bản</h2>
             <div class="edit-box__group">
@@ -86,6 +78,5 @@
                 <asp:Button ID="btnDelete" runat="server" Text="Xoá" OnClick="btnDelete_Click" />
             </div>
         </div>
-    </form>
-</body>
-</html>
+    </div>
+</asp:Content>

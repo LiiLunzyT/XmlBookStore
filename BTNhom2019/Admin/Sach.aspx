@@ -1,20 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sach.aspx.cs" MaintainScrollPositionOnPostback="true"
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Admin/AdminLayout.Master" CodeBehind="Sach.aspx.cs" MaintainScrollPositionOnPostback="true"
     Inherits="BTNhom2019.Admin.Sach" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Quản lý Sách</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
         #form {
             display: flex;
             flex-direction: column;
@@ -26,7 +15,7 @@
         }
 
         .grid-view {
-            width: 80%;
+            width: 100%;
             font-size: 1.3rem;
         }
 
@@ -47,10 +36,7 @@
         .page--1 {
             width: 40%;
         }
-        .grid-view {
-            width: 100%;
-        }
-        .edit-box__group, .edit-box__control {
+        box__group, .edit-box__control {
             width: 100%;
             display: flex;
             align-items: center;
@@ -93,15 +79,15 @@
             width: 100%;
         }
     </style>
-</head>
-<body>
-    <h1 style="margin: 10px 0">Quản lý Sách</h1>
-    <form id="form" runat="server">
-        <div style="width: 80%; height: 300px; overflow-y: scroll; border: 1px solid black;">
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="Content" runat="server">
+    <h1 style="margin: 10px 0; text-align: center">Quản lý Sách</h1>
+    <div id="form">
+        <div style="width: 80%; height: 250px; overflow-y: scroll; border: 1px solid black;">
             <asp:GridView ID="grdSach" runat="server" CssClass="grid-view"
                 OnSelectedIndexChanged="grdSach_SelectedIndexChanged"
-                HorizontalAlign="Center"
-                CellPadding="5">
+                HorizontalAlign="Center">
                 <Columns>
                     <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
                 </Columns>
@@ -178,6 +164,5 @@
                 <asp:Button ID="btnDelete" runat="server" Text="Xoá" OnClick="btnDelete_Click" />
             </div>
         </div>
-    </form>
-</body>
-</html>
+    </div>
+</asp:Content>

@@ -68,7 +68,7 @@ namespace BTNhom2019.DAO
         {
             String ProducerID = producer.ProducerID;
             XmlNode nProducer = root.SelectSingleNode("Producer[@ProducerID = '" + ProducerID + "']");
-            nProducer["ProducerID"].InnerText = producer.ProducerID;
+            nProducer.Attributes["ProducerID"].Value = producer.ProducerID;
             nProducer["ProducerName"].InnerText = producer.ProducerName.ToString();
             nProducer["ProducerAddress"].InnerText = producer.ProducerAddress.ToString();
             nProducer["ProducerContact"].InnerText = producer.ProducerContact.ToString();

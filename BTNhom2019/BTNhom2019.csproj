@@ -106,7 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\DangNhap.aspx" />
     <Content Include="Admin\NhaXuatBan.aspx" />
+    <Content Include="Admin\QuanLy.aspx" />
     <Content Include="Admin\Sach.aspx" />
     <Content Include="Admin\TacGia.aspx" />
     <Content Include="Admin\TheLoai.aspx" />
@@ -129,6 +131,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Admin\AdminLayout.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Sach.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -165,12 +168,33 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminLayout.Master.cs">
+      <DependentUpon>AdminLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminLayout.Master.designer.cs">
+      <DependentUpon>AdminLayout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DangNhap.aspx.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DangNhap.aspx.designer.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\NhaXuatBan.aspx.cs">
       <DependentUpon>NhaXuatBan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\NhaXuatBan.aspx.designer.cs">
       <DependentUpon>NhaXuatBan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\QuanLy.aspx.cs">
+      <DependentUpon>QuanLy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\QuanLy.aspx.designer.cs">
+      <DependentUpon>QuanLy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Sach.aspx.cs">
       <DependentUpon>Sach.aspx</DependentUpon>
