@@ -1,16 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TheLoai.aspx.cs" Inherits="BTNhom2019.Admin.TheLoai" %>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Admin/AdminLayout.Master" CodeBehind="TheLoai.aspx.cs" Inherits="BTNhom2019.Admin.TheLoai" %>
+
+<asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Quản lý Thể loại</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
         #form {
             display: flex;
             flex-direction: column;
@@ -45,10 +37,11 @@
             padding: 5px;
         }
     </style>
-</head>
-<body>
-    <h1> Quản lý Thể loại</h1>
-    <form id="form" runat="server">
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="Content" runat="server">
+    <h1 class="page-title"> Quản lý Thể loại</h1>
+    <div id="form">
         <div style="width: 100%">
             <asp:GridView ID="grdTheLoai" runat="server" CssClass="grid-view"
                 OnSelectedIndexChanged="grdTheLoai_SelectedIndexChanged" HorizontalAlign="Center">
@@ -79,7 +72,6 @@
                 <asp:Button ID="btnDelete" runat="server" Text="Xoá" OnClick="btnDelete_Click" />
             </div>
         </div>
-    </form>
-</body>
-</html>
+    </div>
+</asp:Content>
 

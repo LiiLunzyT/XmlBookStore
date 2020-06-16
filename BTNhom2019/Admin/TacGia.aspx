@@ -1,28 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TacGia.aspx.cs" Inherits="BTNhom2019.Admin.TacGia" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Admin/AdminLayout.Master" CodeBehind="TacGia.aspx.cs" Inherits="BTNhom2019.Admin.TacGia" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<asp:Content ContentPlaceHolderID="head" runat="server">
+    <title>Tác giả</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
         #form {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
+        .page-tg {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+        }
         .grid-view {
             width: 80%;
             font-size: 1.3rem;
+            margin: 0 auto;
         }
 
         .edit-box {
@@ -39,7 +33,7 @@
             display: flex;
             align-items: center;
         }
-        .edit-box__group lable {
+        .edit-box__group label {
             width: 100px;
         }
         .edit-box__group input, .edit-box__control input {
@@ -48,19 +42,13 @@
             padding: 5px;
         }
     </style>
-</head>
-<body>
-    <form id="form" runat="server">
-        <div style="width: 100%">
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="Content" runat="server">
+    <div class="page-tg" runat="server">
+        <h1 style="text-align:center; margin: 20px 0">Quản lý Tác giả</h1>
+        <div style="width: 100%; height:250px; overflow-y: scroll;">
             <asp:GridView ID="grdTacGia" runat="server" CssClass="grid-view"
-                OnSelectedIndexChanged="grdTacGia_SelectedIndexChanged" HorizontalAlign="Center">
-                <Columns>
-                <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
-                </Columns>
-            </asp:GridView>
-        </div>
-        <div style="width: 100%">
-            <asp:GridView ID="GridView1" runat="server" CssClass="grid-view"
                 OnSelectedIndexChanged="grdTacGia_SelectedIndexChanged" HorizontalAlign="Center">
                 <Columns>
                 <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
@@ -70,15 +58,15 @@
         <div class="edit-box">
             <h2>Thông tin Tác giả</h2>
             <div class="edit-box__group">
-                <lable for="AuthorID">Mã Tác giả</lable>
+                <label for="AuthorID">Mã Tác giả</label>
                 <input id="inAuthorID" runat="server" name="AuthorID" type="text" disabled="disabled"/>
             </div>
             <div class="edit-box__group">
-                <lable for="AuthorName">Tên Tác giả</lable>
+                <label for="AuthorName">Tên Tác giả</label>
                 <input id="inAuthorName" runat="server" name="AuthorName" type="text"/>
             </div>
             <div class="edit-box__group">
-                <lable for="AuthorContact">Liên lạc</lable>
+                <label for="AuthorContact">Liên lạc</label>
                 <input id="inAuthorContact" runat="server" name="AuthorID" type="text"/>
             </div>
             <div class="edit-box__control">
@@ -89,6 +77,5 @@
                 <asp:Button ID="btnDelete" runat="server" Text="Xoá" OnClick="btnDelete_Click" />
             </div>
         </div>
-    </form>
-</body>
-</html>
+    </div>
+</asp:Content>

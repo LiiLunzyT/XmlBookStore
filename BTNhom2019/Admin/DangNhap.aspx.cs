@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BTNhom2019.DAO;
 
 namespace BTNhom2019.Admin
 {
@@ -22,9 +23,12 @@ namespace BTNhom2019.Admin
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if(username.Value == "admin" && password.Value == "1")
+            UserDAO dao = new UserDAO();
+
+            if(dao.AdminLogin(username.Value, password.Value) != "wrong")
             {
                 Session["Login"] = "Admin";
+                Session["ID"] = dao.AdminLogin(username.Value, password.Value);
                 if (Request.QueryString["ReturnUrl"] != null)
                 {
                     Response.Redirect(Request.QueryString["ReturnUrl"].ToString());

@@ -1,0 +1,72 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.master-form {
+    width: 100%;
+}
+
+.page-title {
+    text-align: center;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: black;
+    justify-content: space-around;
+}
+
+.nav-menu {
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item {
+    height: 100%;
+    width: auto;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.nav-link:hover {
+    background-color: darkgray;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+}
+.welcome {
+    margin-right: 20px;
+    color: white;
+    font-size: 20px;
+}
+.btnLogout {
+    padding: 5px;
+}

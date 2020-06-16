@@ -37,7 +37,7 @@ namespace BTNhom2019.DAO
             XmlNode nCategory = root.ChildNodes[index];
             category.CategoryID = nCategory.Attributes["CategoryID"].Value.ToString();
             category.CategoryName = nCategory["CategoryName"].InnerText.ToString();
-            category.CategoryDesc = nCategory["CategoryContact"].InnerText.ToString();
+            category.CategoryDesc = nCategory["CategoryDesc"].InnerText.ToString();
             return category;
         }
 
@@ -46,7 +46,7 @@ namespace BTNhom2019.DAO
             XmlNode nCategory = root.ChildNodes[0];
             XmlNode newCategory = nCategory.CloneNode(true);
             newCategory.Attributes["CategoryID"].Value = category.CategoryID;
-            newCategory["CateogoryName"].InnerText = category.CategoryName;
+            newCategory["CategoryName"].InnerText = category.CategoryName;
             newCategory["CategoryDesc"].InnerText = category.CategoryDesc;
             root.AppendChild(newCategory);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));

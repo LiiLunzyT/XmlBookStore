@@ -19,10 +19,6 @@ namespace BTNhom2019.Admin
         {
             if(!IsPostBack)
             {
-                if(Session["login"] == null)
-                {
-                    Response.Redirect(String.Format("{0}?ReturnUrl={1}", "DangNhap.aspx", Request.RawUrl));
-                }
                 bindData();
                 init();
             }
