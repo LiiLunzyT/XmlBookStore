@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="web.xsl"?>
+<BookStore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BookStore.xsd">
+  <Authors>
+    <Author AuthorID="AU-001">
+      <AuthorName>Tào Huyết Cần</AuthorName>
+      <AuthorContact>Chưa có</AuthorContact>
+    </Author>
+    <Author AuthorID="AU-002">
+      <AuthorName>La Quán Trung</AuthorName>
+      <AuthorContact>
+      </AuthorContact>
+    </Author>
+    <Author AuthorID="AU-003">
+      <AuthorName>Thị Nại Am</AuthorName>
+      <AuthorContact>
+      </AuthorContact>
+    </Author>
+    <Author AuthorID="AU-004">
+      <AuthorName>Ngô Thừa Ân</AuthorName>
+      <AuthorContact>
+      </AuthorContact>
+    </Author>
+    <Author AuthorID="AU-005">
+      <AuthorName>J. K. Rowling</AuthorName>
+      <AuthorContact>
+      </AuthorContact>
+    </Author>
+    <Author AuthorID="AU-006">
+      <AuthorName>Nguyễn Nhật Ánh</AuthorName>
+      <AuthorContact>
+      </AuthorContact>
+    </Author>
+    <Author AuthorID="AU-007">
+      <AuthorName>Võ Thành Luân</AuthorName>
+      <AuthorContact>0392594134</AuthorContact>
+    </Author>
+  </Authors>
+  <Producers>
+    <Producer ProducerID="PD-001">
+      <ProducerName>Nhà Xuất Bản Giáo Dục</ProducerName>
+      <ProducerAddress>NULL</ProducerAddress>
+      <ProducerContact>
+      </ProducerContact>
+    </Producer>
+    <Producer ProducerID="PD-002">
+      <ProducerName>Nhà Xuất Bản Trẻ</ProducerName>
+      <ProducerAddress>NULL</ProducerAddress>
+      <ProducerContact>
+      </ProducerContact>
+    </Producer>
+    <Producer ProducerID="PD-003">
+      <ProducerName>Nhà Xuất Bản Hồng Đức</ProducerName>
+      <ProducerAddress>
+      </ProducerAddress>
+      <ProducerContact>
+      </ProducerContact>
+    </Producer>
+    <Producer ProducerID="PD-004">
+      <ProducerName>Nhà Xuất Bản Chính Trị Quốc Gia</ProducerName>
+      <ProducerAddress>
+      </ProducerAddress>
+      <ProducerContact>
+      </ProducerContact>
+    </Producer>
+    <Producer ProducerID="PD-005">
+      <ProducerName>Nhà Xuất Bản Văn Học</ProducerName>
+      <ProducerAddress>
+      </ProducerAddress>
+      <ProducerContact>
+      </ProducerContact>
+    </Producer>
+    <Producer ProducerID="PD-006">
+      <ProducerName>Nhà Xuất Bản Thế Giới</ProducerName>
+      <ProducerAddress>
+      </ProducerAddress>
+      <ProducerContact>
+      </ProducerContact>
+    </Producer>
+    <Producer ProducerID="PD-009">
+      <ProducerName>Nhà xuất bản Thành Luân</ProducerName>
+      <ProducerAddress>0312</ProducerAddress>
+      <ProducerContact>Nha Trang</ProducerContact>
+    </Producer>
+  </Producers>
+  <Categories>
+    <Category CategoryID="CG-001">
+      <CategoryName>Văn Học Trung Quốc</CategoryName>
+      <CategoryDesc>
+      </CategoryDesc>
+    </Category>
+    <Category CategoryID="CG-002">
+      <CategoryName>Tình Cảm</CategoryName>
+      <CategoryDesc>
+      </CategoryDesc>
+    </Category>
+    <Category CategoryID="CG-003">
+      <CategoryName>Đời Thường</CategoryName>
+      <CategoryDesc>
+      </CategoryDesc>
+    </Category>
+    <Category CategoryID="CG-004">
+      <CategoryName>Giả Tưởng</CategoryName>
+      <CategoryDesc>
+      </CategoryDesc>
+    </Category>
+    <Category CategoryID="CG-005">
+      <CategoryName>Thiếu Nhi</CategoryName>
+      <CategoryDesc>
+      </CategoryDesc>
+    </Category>
+    <Category CategoryID="CG-006">
+      <CategoryName>Kinh Tế</CategoryName>
+      <CategoryDesc>
+      </CategoryDesc>
+    </Category>
+  </Categories>
+  <Books>
+    <Book BookID="BK-001">
+      <BookName>Tam Quốc Diên Nghĩa</BookName>
+      <BookInfo>
+        <Pages>0</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2010</Year>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>208800</BookPrice>
+      <BookQuantity>1000</BookQuantity>
+      <BookDiscount>10</BookDiscount>
+      <BookAuthor AuthorID="AU-002" />
+      <BookCategory CategoryID="CG-001" />
+      <BookProducer ProducerID="PD-005" />
+    </Book>
+    <Book BookID="BK-002">
+      <BookName>Thủy Hử</BookName>
+      <BookInfo>
+        <Pages>0</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2010</Year>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>165000</BookPrice>
+      <BookQuantity>10000</BookQuantity>
+      <BookDiscount>0</BookDiscount>
+      <BookAuthor AuthorID="AU-003" />
+      <BookCategory CategoryID="CG-001" />
+      <BookProducer ProducerID="PD-005" />
+    </Book>
+    <Book BookID="BK-003">
+      <BookName>Hồng Lâu Mộng</BookName>
+      <BookInfo>
+        <Pages>0</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2010</Year>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>284250</BookPrice>
+      <BookQuantity>10000</BookQuantity>
+      <BookDiscount>0</BookDiscount>
+      <BookAuthor AuthorID="AU-001" />
+      <BookCategory CategoryID="CG-001" />
+      <BookProducer ProducerID="PD-005" />
+    </Book>
+    <Book BookID="BK-004">
+      <BookName>Tây Du Ký</BookName>
+      <BookInfo>
+        <Pages>0</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2010</Year>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>315000</BookPrice>
+      <BookQuantity>10000</BookQuantity>
+      <BookDiscount>0</BookDiscount>
+      <BookAuthor AuthorID="AU-004" />
+      <BookCategory CategoryID="CG-001" />
+      <BookProducer ProducerID="PD-005" />
+    </Book>
+    <Book BookID="BK-005">
+      <BookName>Mắt Biếc</BookName>
+      <BookInfo>
+        <Pages>0</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2010</Year>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>86973</BookPrice>
+      <BookQuantity>1000</BookQuantity>
+      <BookDiscount>0</BookDiscount>
+      <BookAuthor AuthorID="AU-006" />
+      <BookCategory CategoryID="CG-003" />
+      <BookProducer ProducerID="PD-006" />
+    </Book>
+    <Book BookID="BK-006">
+      <BookName>Trọn Bộ HarryPotter</BookName>
+      <BookInfo>
+        <Pages>200</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2010</Year>
+        <Description>Trọn bộ Harry Potter 7 phần</Description>
+      </BookInfo>
+      <BookPrice>1051000</BookPrice>
+      <BookQuantity>100</BookQuantity>
+      <BookDiscount>10</BookDiscount>
+      <BookAuthor AuthorID="AU-005" />
+      <BookCategory CategoryID="CG-004" />
+      <BookProducer ProducerID="PD-003" />
+    </Book>
+    <Book BookID="BK-007">
+      <BookName>Sách của Luân</BookName>
+      <BookInfo>
+        <Pages>69</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2020</Year>
+        <Description>adasdsad asd asdsa dsad</Description>
+      </BookInfo>
+      <BookPrice>10000</BookPrice>
+      <BookQuantity>10</BookQuantity>
+      <BookDiscount>10</BookDiscount>
+      <BookAuthor AuthorID="AU-001" />
+      <BookCategory CategoryID="CG-001" />
+      <BookProducer ProducerID="PD-001" />
+    </Book>
+    <Book BookID="BK-008">
+      <BookName>Sách của Luân 2</BookName>
+      <BookInfo>
+        <Pages>69</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2020</Year>
+        <Description>adas dasd asdas dasd asda sdasd</Description>
+      </BookInfo>
+      <BookPrice>10000</BookPrice>
+      <BookQuantity>10</BookQuantity>
+      <BookDiscount>10</BookDiscount>
+      <BookAuthor AuthorID="AU-007" />
+      <BookCategory CategoryID="CG-001" />
+      <BookProducer ProducerID="PD-001" />
+    </Book>
+    <Book BookID="BK-009">
+      <BookName>Sách của Luân 3</BookName>
+      <BookInfo>
+        <Pages>200</Pages>
+        <Size>30cm x 20cm</Size>
+        <Year>2020</Year>
+        <Description>asdadasd</Description>
+      </BookInfo>
+      <BookPrice>10000</BookPrice>
+      <BookQuantity>10</BookQuantity>
+      <BookDiscount>10</BookDiscount>
+      <BookAuthor AuthorID="AU-007" />
+      <BookCategory CategoryID="CG-002" />
+      <BookProducer ProducerID="PD-009" />
+    </Book>
+  </Books>
+  <Orders>
+    <Order OrderID="OD-001">
+      <Customer>
+        <CustomerName>Nguyễn Tấn Kiệt</CustomerName>
+        <CustomerAddress>Ninh Hoà</CustomerAddress>
+        <CustomerContact>0123456789</CustomerContact>
+      </Customer>
+      <OrderDetail>
+        <Detail>
+          <Book BookID="BK-001" />
+          <Quantity>1</Quantity>
+          <Price>208800</Price>
+        </Detail>
+        <Detail>
+          <Book BookID="BK-002" />
+          <Quantity>1</Quantity>
+          <Price>165000</Price>
+        </Detail>
+        <Detail>
+          <Book BookID="BK-003" />
+          <Quantity>1</Quantity>
+          <Price>284250</Price>
+        </Detail>
+        <Detail>
+          <Book BookID="BK-004" />
+          <Quantity>1</Quantity>
+          <Price>315000</Price>
+        </Detail>
+      </OrderDetail>
+      <OrderDate>2020-06-09T18:13:51.0</OrderDate>
+      <OrderStatus>Chờ duyệt</OrderStatus>
+    </Order>
+    <Order OrderID="OD-002">
+      <Customer>
+        <CustomerName>Nguyễn Đăng Trường Phát</CustomerName>
+        <CustomerAddress>Nha Trang</CustomerAddress>
+        <CustomerContact>0987654321</CustomerContact>
+      </Customer>
+      <OrderDetail>
+        <Detail>
+          <Book BookID="BK-005" />
+          <Quantity>2</Quantity>
+          <Price>173946</Price>
+        </Detail>
+      </OrderDetail>
+      <OrderDate>2020-05-20T15:13:51.0</OrderDate>
+      <OrderStatus>Chờ duyệt</OrderStatus>
+    </Order>
+    <Order OrderID="OD-003">
+      <Customer>
+        <CustomerName>Cao Quỳnh Anh</CustomerName>
+        <CustomerAddress>Tuy Hoà</CustomerAddress>
+        <CustomerContact>0372148123</CustomerContact>
+      </Customer>
+      <OrderDetail>
+        <Detail>
+          <Book BookID="BK-006" />
+          <Quantity>1</Quantity>
+          <Price>1051000</Price>
+        </Detail>
+      </OrderDetail>
+      <OrderDate>2020-07-20T20:13:51.0</OrderDate>
+      <OrderStatus>Chờ duyệt</OrderStatus>
+    </Order>
+  </Orders>
+</BookStore>
