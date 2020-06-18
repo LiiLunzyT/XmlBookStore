@@ -2,6 +2,7 @@
 using BTNhom2019.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,16 +21,24 @@ namespace BTNhom2019.KhachHang
                 {
                     Response.Redirect("DangNhap.aspx");
                 }
+                else
+                {
+                    bindData();
+                }
             }
         }
 
-        protected void Xml1_DataBinding(object sender, EventArgs e)
+        public void bindData()
         {
             CustomerDAO dao = new CustomerDAO();
             String CustomerID = dao.getCustomerByUserID(Session["ID"].ToString()).CustomerID;
 
-            XsltArgumentList xsltPara = new XsltArgumentList();
-            xsltPara.AddParam("CustomerID", "", CustomerID);
+            XmlCart.TransformSource = Server.MapPath("~/XSLT/ThanhToan.xslt");
+            XmlCart.DocumentSource = Server.MapPath("~/App_Data/BookStore.xml");
+            XsltArgumentList args = new XsltArgumentList();
+            args.AddParam("CustomerID", "", CustomerID);
+
+            XmlCart.TransformArgumentList = args;
         }
     }
 }

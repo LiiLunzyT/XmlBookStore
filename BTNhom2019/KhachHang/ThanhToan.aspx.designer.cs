@@ -15,12 +15,12 @@ namespace BTNhom2019.KhachHang
     {
 
         /// <summary>
-        /// Xml1 control.
+        /// XmlCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Xml Xml1;
+        protected global::System.Web.UI.WebControls.Xml XmlCart;
     }
 }

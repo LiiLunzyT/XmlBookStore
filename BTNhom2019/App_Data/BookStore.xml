@@ -266,7 +266,7 @@
       <Cart>
         <CartItem>
           <BookID>BK-001</BookID>
-          <Quantity>1</Quantity>
+          <Quantity>2</Quantity>
         </CartItem>
         <CartItem>
           <BookID>BK-003</BookID>

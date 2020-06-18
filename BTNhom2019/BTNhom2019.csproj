@@ -141,7 +141,9 @@
     <Content Include="KhachHang\TrangChu.aspx" />
     <Content Include="XSLT\Sach.xslt" />
     <Content Include="KhachHang\CustomerLayout.Master" />
-    <Content Include="XSLT\ThanhToan.xslt" />
+    <Content Include="XSLT\ThanhToan.xslt">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="KhachHang\Sach.aspx" />
     <Content Include="Sach.aspx" />
@@ -326,7 +328,9 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
