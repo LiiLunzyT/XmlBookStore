@@ -16,6 +16,7 @@ body {
 
 .page-title {
     text-align: center;
+    margin: 10px 0;
 }
 
 .navbar {
@@ -47,7 +48,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
     height: 100%;
     text-decoration: none;
     color: white;
@@ -69,4 +70,84 @@ body {
 }
 .btnLogout {
     padding: 5px;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.grid-view-container {
+    width: 80%;
+    height: 250px;
+    overflow-y: scroll;
+    border: 1px solid black;
+}
+.grid-view {
+    width: 100%;
+}
+.grid-view th, .grid-view td {
+    padding: 5px;
+}
+.edit-box {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+.box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.small-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.box-sach {
+    width: 1000px;
+}
+.small-box-1, .small-box-2 {
+    width: 50%;
+}
+.box-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin: 10px;
+}
+.box-inline-group {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    margin-top: 0;
+}
+.box-inline-group .box-group {
+    width: 50%;
+    margin: 0;
+}
+.box-group label {
+    width: 120px;
+}
+.box-group input{
+    flex: 1;
+}
+.box-group select {
+    width: 120px;
+}
+.box-control {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.box-control input {
+    flex: 1;
+    padding: 10px;
 }

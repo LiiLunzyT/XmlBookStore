@@ -105,15 +105,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Admin\DangNhap.aspx" />
+    <Content Include="Admin\DonHang.aspx" />
     <Content Include="Admin\NhaXuatBan.aspx" />
     <Content Include="Admin\QuanLy.aspx" />
     <Content Include="Admin\Sach.aspx" />
     <Content Include="Admin\TacGia.aspx" />
     <Content Include="Admin\TheLoai.aspx" />
+    <Content Include="Admin\ThongKe.aspx" />
     <Content Include="App_Data\BookStore.xml" />
-    <Content Include="Contact.aspx" />
+    <Content Include="App_Data\Test.xml" />
     <Content Include="Content\AdminSite.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -133,7 +134,16 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin\AdminLayout.Master" />
+    <Content Include="Images\alt_img.png" />
+    <Content Include="Images\BK-001.png" />
+    <Content Include="KhachHang\DangNhap.aspx" />
+    <Content Include="KhachHang\ThanhToan.aspx" />
+    <Content Include="KhachHang\TrangChu.aspx" />
+    <Content Include="XSLT\Sach.xslt" />
+    <Content Include="KhachHang\CustomerLayout.Master" />
+    <Content Include="XSLT\ThanhToan.xslt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="KhachHang\Sach.aspx" />
     <Content Include="Sach.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -183,6 +193,13 @@
     <Compile Include="Admin\DangNhap.aspx.designer.cs">
       <DependentUpon>DangNhap.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\DonHang.aspx.cs">
+      <DependentUpon>DonHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DonHang.aspx.designer.cs">
+      <DependentUpon>DonHang.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\NhaXuatBan.aspx.cs">
       <DependentUpon>NhaXuatBan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,25 +235,20 @@
     <Compile Include="Admin\TheLoai.aspx.designer.cs">
       <DependentUpon>TheLoai.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ThongKe.aspx.cs">
+      <DependentUpon>ThongKe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ThongKe.aspx.designer.cs">
+      <DependentUpon>ThongKe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DAO\AuthorDAO.cs" />
     <Compile Include="DAO\BookDAO.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="DAO\CustomerDAO.cs" />
+    <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\ProducerDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
@@ -249,6 +261,41 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang\CustomerLayout.Master.cs">
+      <DependentUpon>CustomerLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KhachHang\CustomerLayout.Master.designer.cs">
+      <DependentUpon>CustomerLayout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang\DangNhap.aspx.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KhachHang\DangNhap.aspx.designer.cs">
+      <DependentUpon>DangNhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang\Sach.aspx.cs">
+      <DependentUpon>Sach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KhachHang\Sach.aspx.designer.cs">
+      <DependentUpon>Sach.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang\ThanhToan.aspx.cs">
+      <DependentUpon>ThanhToan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KhachHang\ThanhToan.aspx.designer.cs">
+      <DependentUpon>ThanhToan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang\TrangChu.aspx.cs">
+      <DependentUpon>TrangChu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KhachHang\TrangChu.aspx.designer.cs">
+      <DependentUpon>TrangChu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

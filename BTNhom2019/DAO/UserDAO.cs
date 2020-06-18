@@ -32,5 +32,20 @@ namespace BTNhom2019.DAO
 
             return "wrong";
         }
+
+        public String CustomerLogin(String username, String password)
+        {
+            foreach (XmlNode user in root.ChildNodes)
+            {
+                if (user["UserName"].InnerText == username &&
+                    user["Password"].InnerText == password &&
+                    user["UserRole"].InnerText == "Khách hàng")
+                {
+                    return user.Attributes["UserID"].Value;
+                }
+            }
+
+            return "wrong";
+        }
     }
 }

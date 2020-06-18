@@ -96,6 +96,15 @@ namespace BTNhom2019.Admin
         protected global::System.Web.UI.WebControls.DropDownList inProducer;
 
         /// <summary>
+        /// inYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inYear;
+
+        /// <summary>
         /// inPages control.
         /// </summary>
         /// <remarks>
@@ -112,15 +121,6 @@ namespace BTNhom2019.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inSize;
-
-        /// <summary>
-        /// inYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inYear;
 
         /// <summary>
         /// inDescription control.

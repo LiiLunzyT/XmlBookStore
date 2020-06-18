@@ -32,6 +32,10 @@
 
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="DonHang.aspx">Đơn hàng</a>
+
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="ThongKe.aspx">Thống kê</a>
 
                 </li>
@@ -41,8 +45,8 @@
                 <asp:Button ID="btnLogout" CssClass="btnLogout" runat="server" Text="Đăng xuất" OnClick="btnLogout_Click"/>
             </div>
         </nav>
-        <div>
-            <asp:ContentPlaceHolder ID="Content" runat="server">
+        <div class="page">
+            <asp:ContentPlaceHolder ID="Content" runat="server" >
             </asp:ContentPlaceHolder>
         </div>
     </form>

@@ -56,7 +56,7 @@ namespace BTNhom2019.Model
     {
         public String CustomerID;
         public String CustomerName;
-        public String CustomerAdress;
+        public String CustomerAddress;
         public String CustomerContact;
         public List<Item> Cart;
         public String UserID;
@@ -68,6 +68,7 @@ namespace BTNhom2019.Model
         public List<Item> Details;
         public DateTime OrderDate;
         public String OrderStatus;
+        public String CustomerID;
     }
 
     public class Staff

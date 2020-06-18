@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DangNhap.aspx.cs" Inherits="BTNhom2019.Admin.DangNhap" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DangNhap.aspx.cs" Inherits="BTNhom2019.KhachHang.DangNhap" %>
 
 <!DOCTYPE html>
 

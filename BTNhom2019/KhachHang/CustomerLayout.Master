@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CustomerLayout.master.cs" Inherits="BTNhom2019.KhachHang.CustomerLayout" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <link rel="stylesheet" href="~/Content/Site.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <form id="form1" class="master_form" runat="server">
+        <asp:ScriptManager ID="sm" EnablePageMethods="true" runat="server" />
+
+        <nav class="nav-top">
+            <div class="logo"></div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="TrangChu.aspx">TRANG CHỦ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Sach.aspx">SÁCH</a>
+                </li>
+            </ul>
+            <div class="account">
+                <p id="welcome" class="welcome" runat="server"></p>
+                <a id="login" runat="server" href="DangNhap.aspx">Đăng Nhập</a>
+                <asp:Button ID="logout" runat="server" Text="Đăng Xuất" OnClick="logout_Click" />
+            </div>
+            <div id="cart" class="cart" runat="server">
+                <a href="ThanhToan.aspx" runat="server">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div id="cart-float" class="cart-float">0</div>
+                </a>
+            </div>
+        </nav>
+
+        <asp:ContentPlaceHolder ID="Content" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="Script" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

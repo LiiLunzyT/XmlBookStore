@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BTNhom2019
+namespace BTNhom2019.KhachHang
 {
 
 
-    public partial class Contact
+    public partial class TrangChu
     {
     }
 }

@@ -7,20 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BTNhom2019
+namespace BTNhom2019.Admin
 {
 
 
-    public partial class _Default
+    public partial class DonHang
     {
 
         /// <summary>
-        /// form1 control.
+        /// orderFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList orderFilter;
+
+        /// <summary>
+        /// grdDonHang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdDonHang;
     }
 }

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BTNhom2019
+namespace BTNhom2019.Admin
 {
-    public partial class Contact : Page
+    public partial class ThongKe : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
