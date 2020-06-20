@@ -114,7 +114,6 @@
     <Content Include="Admin\TheLoai.aspx" />
     <Content Include="Admin\ThongKe.aspx" />
     <Content Include="App_Data\BookStore.xml" />
-    <Content Include="App_Data\Test.xml" />
     <Content Include="Content\AdminSite.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -146,7 +145,6 @@
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="KhachHang\Sach.aspx" />
-    <Content Include="Sach.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -301,13 +299,6 @@
     </Compile>
     <Compile Include="Model\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sach.aspx.cs">
-      <DependentUpon>Sach.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Sach.aspx.designer.cs">
-      <DependentUpon>Sach.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

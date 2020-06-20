@@ -37,11 +37,14 @@
                 <div class="box-inline-group">
                     <div class="box-group">
                         <label for="BookQuantity">Số lượng</label>
-                        <input id="inBookQuantity" runat="server" name="BookQuantity" type="number" min="0" />
+                        <input id="inBookQuantity" runat="server"
+                            name="BookQuantity" type="number" min="0" />
                     </div>
                     <div class="box-group">
                         <label for="BookDiscount">Giảm giá</label>
-                        <input id="inBookDiscount" runat="server" name="BookDiscount" type="number" min="0" />
+                        <input id="inBookDiscount" runat="server"
+                            style="width: 80px;"
+                            name="BookDiscount" type="number" min="0" />
                     </div>
                 </div>
                 <div class="box-inline-group">

@@ -12,7 +12,7 @@ namespace BTNhom2019.DAO
     {
         public XmlDocument doc;
         public XmlNode root;
-        String connectString = "~/App_Data/BookStore.xml";
+        readonly String connectString = "~/App_Data/BookStore.xml";
 
         public BookDAO()
         {
@@ -21,12 +21,12 @@ namespace BTNhom2019.DAO
             root = doc.SelectSingleNode("//Books");
         }
 
-        public Book getBookByID(String BookID)
+        public Book GetBookByID(String BookID)
         {
-            XmlNode nBook = root.SelectSingleNode("Book[@BookID = '" + BookID + "']");
+            XmlNode nBook = root.SelectSingleNode("Book[BookID = '" + BookID + "']");
             XmlNode nBookInfo = nBook["BookInfo"];
             Book book = new Book();
-            book.BookID = nBook.Attributes["BookID"].Value.ToString();
+            book.BookID = nBook["BookID"].InnerText.ToString();
             book.BookName = nBook["BookName"].InnerText.ToString();
             book.BookPrice = int.Parse(nBook["BookPrice"].InnerText.ToString());
             book.BookQuantity = int.Parse(nBook["BookQuantity"].InnerText.ToString());
@@ -37,50 +37,52 @@ namespace BTNhom2019.DAO
             book.Year = int.Parse(nBookInfo["Year"].InnerText);
             book.Description = nBookInfo["Description"].InnerText;
 
-            book.AuthorID = nBook["BookAuthor"].Attributes["AuthorID"].Value;
-            book.CategoryID = nBook["BookCategory"].Attributes["CategoryID"].Value;
-            book.ProducerID = nBook["BookProducer"].Attributes["ProducerID"].Value;
+            book.AuthorID = nBook["AuthorID"].InnerText;
+            book.CategoryID = nBook["CategoryID"].InnerText;
+            book.ProducerID = nBook["ProducerID"].InnerText;
 
             return book;
         }
 
-        public Book geBookByIndex(int index)
+        public Book GetBookByIndex(int index)
         {
             XmlNode nBook = root.ChildNodes[index];
             XmlNode nBookInfo = nBook["BookInfo"];
-            Book book = new Book();
-            book.BookID = nBook.Attributes["BookID"].Value.ToString();
-            book.BookName = nBook["BookName"].InnerText.ToString();
-            book.BookPrice = int.Parse(nBook["BookPrice"].InnerText.ToString());
-            book.BookQuantity = int.Parse(nBook["BookQuantity"].InnerText.ToString());
-            book.BookDiscount = int.Parse(nBook["BookDiscount"].InnerText.ToString());
+            var book = new Book
+            {
+                BookID = nBook["BookID"].InnerText.ToString(),
+                BookName = nBook["BookName"].InnerText.ToString(),
+                BookPrice = int.Parse(nBook["BookPrice"].InnerText.ToString()),
+                BookQuantity = int.Parse(nBook["BookQuantity"].InnerText.ToString()),
+                BookDiscount = int.Parse(nBook["BookDiscount"].InnerText.ToString()),
 
-            book.Pages = int.Parse(nBookInfo["Pages"].InnerText);
-            book.Size = nBookInfo["Size"].InnerText;
-            book.Year = int.Parse(nBookInfo["Year"].InnerText);
-            book.Description = nBookInfo["Description"].InnerText;
+                Pages = int.Parse(nBookInfo["Pages"].InnerText),
+                Size = nBookInfo["Size"].InnerText,
+                Year = int.Parse(nBookInfo["Year"].InnerText),
+                Description = nBookInfo["Description"].InnerText,
 
-            book.AuthorID = nBook["BookAuthor"].Attributes["AuthorID"].Value;
-            book.CategoryID = nBook["BookCategory"].Attributes["CategoryID"].Value;
-            book.ProducerID = nBook["BookProducer"].Attributes["ProducerID"].Value;
+                AuthorID = nBook["AuthorID"].InnerText,
+                CategoryID = nBook["CategoryID"].InnerText,
+                ProducerID = nBook["ProducerID"].InnerText
+            };
 
             return book;
         }
 
-        public void addBook(Book book)
+        public void AddBook(Book book)
         {
             XmlNode nBook = root.ChildNodes[0];
             XmlNode newBook = nBook.CloneNode(true);
             XmlNode newBookInfo = newBook["BookInfo"];
-            newBook.Attributes["BookID"].Value = book.BookID;
+            newBook["BookID"].InnerText = book.BookID;
             newBook["BookName"].InnerText = book.BookName;
             newBook["BookPrice"].InnerText = book.BookPrice.ToString();
             newBook["BookQuantity"].InnerText = book.BookQuantity.ToString();
             newBook["BookDiscount"].InnerText = book.BookDiscount.ToString();
 
-            newBook["BookCategory"].Attributes["CategoryID"].Value = book.CategoryID;
-            newBook["BookAuthor"].Attributes["AuthorID"].Value = book.AuthorID;
-            newBook["BookProducer"].Attributes["ProducerID"].Value = book.ProducerID;
+            newBook["CategoryID"].InnerText = book.CategoryID;
+            newBook["AuthorID"].InnerText = book.AuthorID;
+            newBook["ProducerID"].InnerText = book.ProducerID;
 
             newBookInfo["Pages"].InnerText = book.Pages.ToString();
             newBookInfo["Size"].InnerText = book.Size;
@@ -90,30 +92,35 @@ namespace BTNhom2019.DAO
             newBook["BookInfo"].InnerXml = newBookInfo.InnerXml;
             root.AppendChild(newBook);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
-
         }
 
-        public void deleteBook(Book book)
+        public void DeleteBook(Book book)
         {
             String BookID = book.BookID;
-            XmlNode nBook = root.SelectSingleNode("Book[@BookID = '" + BookID + "']");
+            XmlNode nBook = root.SelectSingleNode("Book[BookID = '" + BookID + "']");
+            root.RemoveChild(nBook);
+            doc.Save(HttpContext.Current.Server.MapPath(connectString));
+        }
+        public void DeleteBook(String BookID)
+        {
+            XmlNode nBook = root.SelectSingleNode("Book[BookID = '" + BookID + "']");
             root.RemoveChild(nBook);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public void updateBook(Book book)
+        public void UpdateBook(Book book)
         {
             String BookID = book.BookID;
-            XmlNode nBook = root.SelectSingleNode("Book[@BookID = '" + BookID + "']");
+            XmlNode nBook = root.SelectSingleNode("Book[BookID = '" + BookID + "']");
             XmlNode nBookInfo = nBook["BookInfo"];
             nBook["BookName"].InnerText = book.BookName;
             nBook["BookPrice"].InnerText = book.BookPrice.ToString();
             nBook["BookQuantity"].InnerText = book.BookQuantity.ToString();
             nBook["BookDiscount"].InnerText = book.BookDiscount.ToString();
 
-            nBook["BookCategory"].Attributes["CategoryID"].Value = book.CategoryID;
-            nBook["BookAuthor"].Attributes["AuthorID"].Value = book.AuthorID;
-            nBook["BookProducer"].Attributes["ProducerID"].Value = book.ProducerID;
+            nBook["CategoryID"].InnerText = book.CategoryID;
+            nBook["AuthorID"].InnerText = book.AuthorID;
+            nBook["ProducerID"].InnerText = book.ProducerID;
 
             nBookInfo["Pages"].InnerText = book.Pages.ToString();
             nBookInfo["Size"].InnerText = book.Size.ToString();
@@ -123,28 +130,30 @@ namespace BTNhom2019.DAO
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public List<Book> getListBooks()
+        public List<Book> GetListBooks()
         {
             List<Book> listBooks = new List<Book>();
 
             foreach (XmlNode node in root.ChildNodes)
             {
                 XmlNode nBookInfo = node["BookInfo"];
-                Book book = new Book();
-                book.BookID = node.Attributes["BookID"].Value.ToString();
-                book.BookName = node["BookName"].InnerText.ToString();
-                book.BookPrice = int.Parse(node["BookPrice"].InnerText.ToString());
-                book.BookQuantity = int.Parse(node["BookQuantity"].InnerText.ToString());
-                book.BookDiscount = int.Parse(node["BookDiscount"].InnerText.ToString());
+                Book book = new Book
+                {
+                    BookID = node["BookID"].InnerText.ToString(),
+                    BookName = node["BookName"].InnerText.ToString(),
+                    BookPrice = int.Parse(node["BookPrice"].InnerText.ToString()),
+                    BookQuantity = int.Parse(node["BookQuantity"].InnerText.ToString()),
+                    BookDiscount = int.Parse(node["BookDiscount"].InnerText.ToString()),
 
-                book.Pages = int.Parse(nBookInfo["Pages"].InnerText);
-                book.Size = nBookInfo["Size"].InnerText;
-                book.Year = int.Parse(nBookInfo["Year"].InnerText);
-                book.Description = nBookInfo["Description"].InnerText;
+                    Pages = int.Parse(nBookInfo["Pages"].InnerText),
+                    Size = nBookInfo["Size"].InnerText,
+                    Year = int.Parse(nBookInfo["Year"].InnerText),
+                    Description = nBookInfo["Description"].InnerText,
 
-                book.AuthorID = node["BookAuthor"].Attributes["AuthorID"].Value;
-                book.CategoryID = node["BookCategory"].Attributes["CategoryID"].Value;
-                book.ProducerID = node["BookProducer"].Attributes["ProducerID"].Value;
+                    AuthorID = node["AuthorID"].InnerText,
+                    CategoryID = node["CategoryID"].InnerText,
+                    ProducerID = node["ProducerID"].InnerText
+                };
 
                 listBooks.Add(book);
             }
@@ -152,9 +161,9 @@ namespace BTNhom2019.DAO
             return listBooks;
         }
 
-        public DataTable toDataTable()
+        public DataTable ToDataTable()
         {
-            List<Book> listBooks = getListBooks();
+            List<Book> listBooks = GetListBooks();
 
             DataTable dt = new DataTable();
             dt.Columns.Add("Mã Sách", typeof(String));
@@ -176,16 +185,14 @@ namespace BTNhom2019.DAO
             return dt;
         }
 
-        public String genMaxID()
+        public String GenMaxID()
         {
-            String rs = "";
+            if (root.ChildNodes.Count == 0) return "BK-001";
 
-            String lastID = root.LastChild.Attributes["BookID"].Value.ToString();
+            String lastID = root.LastChild["BookID"].InnerText.ToString();
             int num = int.Parse(lastID.Split('-')[1]);
             String str = "" + (num + 1);
-            rs = "BK-" + str.PadLeft(3, '0');
-
-            return rs;
+            return "BK-" + str.PadLeft(3, '0');
         }
     }
 }

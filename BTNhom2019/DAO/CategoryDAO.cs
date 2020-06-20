@@ -12,7 +12,7 @@ namespace BTNhom2019.DAO
     {
         public XmlDocument doc;
         public XmlNode root;
-        String connectString = "~/App_Data/BookStore.xml";
+        readonly String connectString = "~/App_Data/BookStore.xml";
 
         public CategoryDAO()
         {
@@ -21,64 +21,70 @@ namespace BTNhom2019.DAO
             root = doc.SelectSingleNode("//Categories");
         }
 
-        public Category getCategoryByID(String CategoryID)
+        public Category GetCategoryByID(String CategoryID)
         {
-            XmlNode nCategory = root.SelectSingleNode("Category[@CategoryID = '" + CategoryID + "']");
-            Category category = new Category();
-            category.CategoryID = nCategory.Attributes["CategoryID"].Value.ToString();
-            category.CategoryName = nCategory["CategoryName"].InnerText.ToString();
-            category.CategoryDesc = nCategory["CategoryDesc"].InnerText.ToString();
+            XmlNode nCategory = root.SelectSingleNode("Category[CategoryID = '" + CategoryID + "']");
+            Category category = new Category
+            {
+                CategoryID = nCategory["CategoryID"].InnerText.ToString(),
+                CategoryName = nCategory["CategoryName"].InnerText.ToString(),
+                CategoryDesc = nCategory["CategoryDesc"].InnerText.ToString()
+            };
             return category;
         }
 
-        public Category getCategoryByIndex(int index)
+        public Category GetCategoryByIndex(int index)
         {
-            Category category = new Category();
             XmlNode nCategory = root.ChildNodes[index];
-            category.CategoryID = nCategory.Attributes["CategoryID"].Value.ToString();
-            category.CategoryName = nCategory["CategoryName"].InnerText.ToString();
-            category.CategoryDesc = nCategory["CategoryDesc"].InnerText.ToString();
+            Category category = new Category
+            {
+                CategoryID = nCategory["CategoryID"].InnerText.ToString(),
+                CategoryName = nCategory["CategoryName"].InnerText.ToString(),
+                CategoryDesc = nCategory["CategoryDesc"].InnerText.ToString()
+            };
             return category;
         }
 
-        public void addCategory(Category category)
+        public void AddCategory(Category category)
         {
             XmlNode nCategory = root.ChildNodes[0];
             XmlNode newCategory = nCategory.CloneNode(true);
-            newCategory.Attributes["CategoryID"].Value = category.CategoryID;
+            newCategory["CategoryID"].InnerText = category.CategoryID;
             newCategory["CategoryName"].InnerText = category.CategoryName;
             newCategory["CategoryDesc"].InnerText = category.CategoryDesc;
             root.AppendChild(newCategory);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public void deleteCategory(Category category)
+        public void DeleteCategory(Category category)
         {
             String CategoryID = category.CategoryID;
-            XmlNode nCategory = root.SelectSingleNode("Category[@CategoryID = '" + CategoryID + "']");
+            XmlNode nCategory = root.SelectSingleNode("Category[CategoryID = '" + CategoryID + "']");
             root.RemoveChild(nCategory);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public void updateCategory(Category category)
+        public void UpdateCategory(Category category)
         {
             String CategoryID = category.CategoryID;
-            XmlNode nCategory = root.SelectSingleNode("Category[@CategoryID = '" + CategoryID + "']");
+            XmlNode nCategory = root.SelectSingleNode("Category[CategoryID = '" + CategoryID + "']");
             nCategory["CategoryName"].InnerText = category.CategoryName;
             nCategory["CategoryDesc"].InnerText = category.CategoryDesc;
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public List<Category> getListCategories()
+        public List<Category> GetListCategories()
         {
             List<Category> listCategories = new List<Category>();
 
             foreach (XmlNode node in root.ChildNodes)
             {
-                Category category = new Category();
-                category.CategoryID = node.Attributes["CategoryID"].Value.ToString();
-                category.CategoryName = node["CategoryName"].InnerText.ToString();
-                category.CategoryDesc = node["CategoryDesc"].InnerText.ToString();
+                Category category = new Category
+                {
+                    CategoryID = node["CategoryID"].InnerText.ToString(),
+                    CategoryName = node["CategoryName"].InnerText.ToString(),
+                    CategoryDesc = node["CategoryDesc"].InnerText.ToString()
+                };
 
                 listCategories.Add(category);
             }
@@ -86,9 +92,9 @@ namespace BTNhom2019.DAO
             return listCategories;
         }
 
-        public DataTable toDataTable()
+        public DataTable ToDataTable()
         {
-            List<Category> listCategories = getListCategories();
+            List<Category> listCategories = GetListCategories();
 
             DataTable dt = new DataTable();
             dt.Columns.Add("Mã Thể loại", typeof(String));
@@ -106,16 +112,14 @@ namespace BTNhom2019.DAO
             return dt;
         }
 
-        public String genMaxID()
+        public String GenMaxID()
         {
-            String rs = "";
+            if (root.ChildNodes.Count == 0) return "CG-001";
 
-            String lastID = root.LastChild.Attributes["CategoryID"].Value.ToString();
+            String lastID = root.LastChild["CategoryID"].InnerText.ToString();
             int num = int.Parse(lastID.Split('-')[1]);
             String str = "" + (num + 1);
-            rs = "CG-" + str.PadLeft(3, '0');
-
-            return rs;
+            return "CG-" + str.PadLeft(3, '0');
         }
     }
 }

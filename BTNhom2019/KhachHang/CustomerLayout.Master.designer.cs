@@ -78,6 +78,15 @@ namespace BTNhom2019.KhachHang
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart;
 
         /// <summary>
+        /// cartFloat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartFloat;
+
+        /// <summary>
         /// Content control.
         /// </summary>
         /// <remarks>

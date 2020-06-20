@@ -11,7 +11,7 @@
             <div class="card-body">
               <div class="card-img">
                 <img>
-					<xsl:attribute name="src">../Images/<xsl:value-of select="@BookID"/>.png</xsl:attribute>
+					<xsl:attribute name="src">../Images/<xsl:value-of select="BookID"/>.png</xsl:attribute>
 					<xsl:attribute name="onerror">this.onerror=null;this.src='../Images/alt_img.png'</xsl:attribute>
 				</img>
               </div>
@@ -19,8 +19,8 @@
                 <xsl:value-of select="BookName"/>
               </div>
               <div class="card-author">
-                <xsl:variable name="_AuthorID" select="BookAuthor/@AuthorID" />
-                <xsl:value-of select="/Authors/Author[@AuthorID=$_AuthorID]/AuthorName"/>
+                <xsl:variable name="_AuthorID" select="AuthorID" />
+                <xsl:value-of select="//Authors/Author[AuthorID=$_AuthorID]/AuthorName"/>
               </div>
               <div class="card-price">
                 <xsl:variable name="_price" select="BookPrice" />
@@ -34,7 +34,7 @@
               </div>
             </div>
             <div class="card-control">
-              <button class="card-add" type="button" onclick="addToCart('{@BookID}')">
+              <button class="card-add" type="button" onclick="addToCart('{BookID}')">
                 Thêm vào giỏ hàng
               </button>
             </div>

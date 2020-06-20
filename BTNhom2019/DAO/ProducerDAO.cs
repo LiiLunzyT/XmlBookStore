@@ -23,9 +23,9 @@ namespace BTNhom2019.DAO
 
         public Producer getProducerByID(String ProducerID)
         {
-            XmlNode nProducer = root.SelectSingleNode("Producer[@ProducerID = '" + ProducerID + "']");
+            XmlNode nProducer = root.SelectSingleNode("Producer[ProducerID = '" + ProducerID + "']");
             Producer producer = new Producer();
-            producer.ProducerID = nProducer.Attributes["ProducerID"].Value.ToString();
+            producer.ProducerID = nProducer["ProducerID"].InnerText.ToString();
             producer.ProducerName = nProducer["ProducerName"].InnerText.ToString();
             producer.ProducerAddress = nProducer["ProducerAddress"].InnerText.ToString();
             producer.ProducerContact = nProducer["ProducerContact"].InnerText.ToString();
@@ -36,7 +36,7 @@ namespace BTNhom2019.DAO
         {
             Producer producer = new Producer();
             XmlNode nProducer = root.ChildNodes[index];
-            producer.ProducerID = nProducer.Attributes["ProducerID"].Value.ToString();
+            producer.ProducerID = nProducer["ProducerID"].InnerText.ToString();
             producer.ProducerName = nProducer["ProducerName"].InnerText.ToString();
             producer.ProducerContact = nProducer["ProducerAddress"].InnerText.ToString();
             producer.ProducerAddress = nProducer["ProducerContact"].InnerText.ToString();
@@ -47,7 +47,7 @@ namespace BTNhom2019.DAO
         {
             XmlNode nProducer = root.ChildNodes[0];
             XmlNode newProducer = nProducer.CloneNode(true);
-            newProducer.Attributes["ProducerID"].Value = producer.ProducerID;
+            newProducer["ProducerID"].InnerText = producer.ProducerID;
             newProducer["ProducerName"].InnerText = producer.ProducerName;
             newProducer["ProducerAddress"].InnerText = producer.ProducerAddress.ToString();
             newProducer["ProducerContact"].InnerText = producer.ProducerContact.ToString();
@@ -59,7 +59,7 @@ namespace BTNhom2019.DAO
         public void deleteProducer(Producer producer)
         {
             String ProducerID = producer.ProducerID;
-            XmlNode nProducer = root.SelectSingleNode("Producer[@ProducerID = '" + ProducerID + "']");
+            XmlNode nProducer = root.SelectSingleNode("Producer[ProducerID = '" + ProducerID + "']");
             root.RemoveChild(nProducer);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
@@ -67,8 +67,7 @@ namespace BTNhom2019.DAO
         public void updateProducer(Producer producer)
         {
             String ProducerID = producer.ProducerID;
-            XmlNode nProducer = root.SelectSingleNode("Producer[@ProducerID = '" + ProducerID + "']");
-            nProducer.Attributes["ProducerID"].Value = producer.ProducerID;
+            XmlNode nProducer = root.SelectSingleNode("Producer[ProducerID = '" + ProducerID + "']");
             nProducer["ProducerName"].InnerText = producer.ProducerName.ToString();
             nProducer["ProducerAddress"].InnerText = producer.ProducerAddress.ToString();
             nProducer["ProducerContact"].InnerText = producer.ProducerContact.ToString();
@@ -82,7 +81,7 @@ namespace BTNhom2019.DAO
             foreach (XmlNode node in root.ChildNodes)
             {
                 Producer producer = new Producer();
-                producer.ProducerID = node.Attributes["ProducerID"].Value.ToString();
+                producer.ProducerID = node["ProducerID"].InnerText.ToString();
                 producer.ProducerName = node["ProducerName"].InnerText.ToString();
                 producer.ProducerContact = node["ProducerContact"].InnerText.ToString();
                 producer.ProducerAddress = node["ProducerAddress"].InnerText.ToString();
@@ -117,14 +116,12 @@ namespace BTNhom2019.DAO
 
         public String genMaxID()
         {
-            String rs = "";
+            if (root.ChildNodes.Count == 0) return "PD-001";
 
-            String lastID = root.LastChild.Attributes["ProducerID"].Value.ToString();
+            String lastID = root.LastChild["ProducerID"].InnerText.ToString();
             int num = int.Parse(lastID.Split('-')[1]);
             String str = "" + (num + 1);
-            rs = "PD-" + str.PadLeft(3, '0');
-
-            return rs;
+            return "PD-" + str.PadLeft(3, '0');
         }
     }
 }

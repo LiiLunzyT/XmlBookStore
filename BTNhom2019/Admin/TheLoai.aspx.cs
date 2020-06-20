@@ -39,7 +39,7 @@ namespace BTNhom2019.Admin
         private void bindData()
         {
             CategoryDAO dao = new CategoryDAO();
-            DataTable dt = dao.toDataTable();
+            DataTable dt = dao.ToDataTable();
 
             grdTheLoai.DataSource = dt;
             grdTheLoai.DataBind();
@@ -48,7 +48,7 @@ namespace BTNhom2019.Admin
         protected void parseData()
         {
             CategoryDAO dao = new CategoryDAO();
-            Category category = dao.getCategoryByIndex(index);
+            Category category = dao.GetCategoryByIndex(index);
 
             inCategoryID.Value = category.CategoryID;
             inCategoryName.Value = category.CategoryName;
@@ -75,7 +75,7 @@ namespace BTNhom2019.Admin
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             CategoryDAO dao = new CategoryDAO();
-            String newID = dao.genMaxID();
+            String newID = dao.GenMaxID();
             mode = "add";
             inCategoryID.Value = newID;
             setButtonEnable(false, false, true, true, false);
@@ -97,7 +97,7 @@ namespace BTNhom2019.Admin
                 category.CategoryID = inCategoryID.Value;
                 category.CategoryName = inCategoryName.Value;
                 category.CategoryDesc = inCategoryDesc.Value;
-                dao.addCategory(category);
+                dao.AddCategory(category);
             }
             if (mode == "edit")
             {
@@ -105,7 +105,7 @@ namespace BTNhom2019.Admin
                 category.CategoryID = inCategoryID.Value;
                 category.CategoryName = inCategoryName.Value;
                 category.CategoryDesc = inCategoryDesc.Value;
-                dao.updateCategory(category);
+                dao.UpdateCategory(category);
             }
 
             init();
@@ -127,7 +127,7 @@ namespace BTNhom2019.Admin
             category.CategoryID = inCategoryID.Value;
             category.CategoryName = inCategoryName.Value;
             category.CategoryDesc = inCategoryDesc.Value;
-            dao.deleteCategory(category);
+            dao.DeleteCategory(category);
 
             init();
             bindData();

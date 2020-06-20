@@ -7,14 +7,15 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using BTNhom2019.Model;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace BTNhom2019.DAO
 {
     public class OrderDAO
     {
-        XmlDocument doc;
-        XmlNode root;
-        String connectString = "~/App_Data/BookStore.xml";
+        readonly XmlDocument doc;
+        readonly XmlNode root;
+        readonly String connectString = "~/App_Data/BookStore.xml";
 
         public OrderDAO()
         {
@@ -23,21 +24,21 @@ namespace BTNhom2019.DAO
             root = doc.SelectSingleNode("//Orders");
         }
 
-        public Order getOrderByID(String OrderID)
+        public Order GetOrderByID(String OrderID)
         {
-            XmlNode nOrder = root.SelectSingleNode("Order[@OrderID = '" + OrderID + "']");
+            XmlNode nOrder = root.SelectSingleNode("Order[OrderID = '" + OrderID + "']");
             Order order = new Order();
             List<Item> listItems = new List<Item>();
 
-            order.OrderID = nOrder.Attributes["OrderID"].Value.ToString();
+            order.OrderID = nOrder["OrderID"].InnerText.ToString();
             order.OrderDate = DateTime.Parse(nOrder["OrderDate"].InnerText);
             order.OrderStatus = nOrder["OrderStatus"].InnerText.ToString();
-            order.CustomerID = nOrder["Customer"].Attributes["CustomerID"].Value;
+            order.CustomerID = nOrder["CustomerID"].InnerText;
 
             foreach(XmlNode nItem in nOrder["OrderDetail"].ChildNodes)
             {
                 Item item = new Item();
-                item.BookID = nItem["Book"].Attributes["BookID"].Value;
+                item.BookID = nItem["BookID"].InnerText;
                 item.Quantity = int.Parse(nItem["Quantity"].InnerText);
                 listItems.Add(item);
             }
@@ -45,21 +46,21 @@ namespace BTNhom2019.DAO
 
             return order;
         }
-        public Order getOrderByIndex(int index)
+        public Order GetOrderByIndex(int index)
         {
             Order order = new Order();
             XmlNode nOrder = root.ChildNodes[index];
             List<Item> listItems = new List<Item>();
 
-            order.OrderID = nOrder.Attributes["OrderID"].Value.ToString();
+            order.OrderID = nOrder["OrderID"].InnerText.ToString();
             order.OrderDate = DateTime.Parse(nOrder["OrderDate"].InnerText);
             order.OrderStatus = nOrder["OrderStatus"].InnerText.ToString();
-            order.CustomerID = nOrder["Customer"].Attributes["CustomerID"].Value;
+            order.CustomerID = nOrder["CustomerID"].InnerText;
 
             foreach (XmlNode nItem in nOrder["OrderDetail"].ChildNodes)
             {
                 Item item = new Item();
-                item.BookID = nItem["Book"].Attributes["BookID"].Value;
+                item.BookID = nItem["BookID"].InnerText;
                 item.Quantity = int.Parse(nItem["Quantity"].InnerText);
                 listItems.Add(item);
             }
@@ -68,26 +69,30 @@ namespace BTNhom2019.DAO
             return order;
         }
 
-        public void newOrderFromCustomer(Customer customer)
+        public void NewOrderFromCustomer(Customer customer)
         {
             XmlNode nOrder = doc.CreateElement("Order");
-            nOrder.Attributes["OrderID"].Value = genMaxID();
 
-            XmlNode nDetails = doc.CreateElement("OrderDetail");
-            foreach(Item item in customer.Cart)
+            XmlNode nOrderID = doc.CreateElement("OrderID");
+            nOrderID.InnerText = GenMaxID();
+            nOrder.AppendChild(nOrderID);
+
+            XmlNode nOrderDetail = doc.CreateElement("OrderDetail");
+            foreach (Item item in customer.Cart)
             {
-                XmlNode nItem = doc.CreateElement("Detail");
+                XmlNode nDetail = doc.CreateElement("Detail");
 
-                XmlNode nBook = doc.CreateElement("Book");
-                nBook["BookID"].Value = item.BookID;
-                nItem.AppendChild(nBook);
+                XmlNode nBookID = doc.CreateElement("BookID");
+                nBookID.InnerText = item.BookID;
+                nDetail.AppendChild(nBookID);
 
                 XmlNode nQuantity = doc.CreateElement("Quantity");
                 nQuantity.InnerText = item.Quantity.ToString();
-                nItem.AppendChild(nQuantity);
-                nDetails.AppendChild(nItem);
+                nDetail.AppendChild(nQuantity);
+
+                nOrderDetail.AppendChild(nDetail);
             }
-            nOrder.AppendChild(nDetails);
+            nOrder.AppendChild(nOrderDetail);
 
             XmlNode nOrderDate = doc.CreateElement("OrderDate");
             nOrderDate.InnerText = DateTime.Now.ToString();
@@ -97,43 +102,46 @@ namespace BTNhom2019.DAO
             nOrderStatus.InnerText = "Chờ duyệt";
             nOrder.AppendChild(nOrderStatus);
 
-            XmlNode nCustomer = doc.CreateElement("Customer");
-            nCustomer["CustomerID"].Value = customer.CustomerID;
-            nOrder.AppendChild(nCustomer);
+            XmlNode nCustomerID = doc.CreateElement("CustomerID");
+            nCustomerID.InnerText = customer.CustomerID;
+            nOrder.AppendChild(nCustomerID);
 
             root.AppendChild(nOrder);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
+
+            CustomerDAO dao = new CustomerDAO();
+            dao.EmptyCart(customer);
         }
 
-        public void deleteOrder(String OrderID)
+        public void DeleteOrder(String OrderID)
         {
-            XmlNode nOrder = root.SelectSingleNode("Order[@OrderID = '" + OrderID + "']");
+            XmlNode nOrder = root.SelectSingleNode("Order[OrderID = '" + OrderID + "']");
             root.RemoveChild(nOrder);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public void checkOrder(String OrderID)
+        public void CheckOrder(String OrderID)
         {
-            XmlNode nOrder = root.SelectSingleNode("Order[@OrderID = '" + OrderID + "']");
+            XmlNode nOrder = root.SelectSingleNode("Order[OrderID = '" + OrderID + "']");
             nOrder["OrderStatus"].InnerText = "Đã duyệt";
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public List<Order> getListOrders(String OrderFilter = "Tất cả")
+        public List<Order> GetListOrders(String OrderFilter = "Tất cả")
         {
             List<Order> listOrders = new List<Order>();
 
             foreach (XmlNode node in root.ChildNodes)
             {
                 Order order = new Order();
-                order.OrderID = node.Attributes["OrderID"].Value.ToString();
+                order.OrderID = node["OrderID"].InnerText.ToString();
                 order.OrderDate = DateTime.Parse(node["OrderDate"].InnerText);
                 order.OrderStatus = node["OrderStatus"].InnerText.ToString();
                 List<Item> listItems = new List<Item>();
                 foreach(XmlNode nItem in node["OrderDetail"].ChildNodes)
-                {
+                { 
                     Item item = new Item();
-                    item.BookID = nItem["Book"].Attributes["BookID"].Value;
+                    item.BookID = nItem["BookID"].InnerText;
                     item.Quantity = int.Parse(nItem["Quantity"].InnerText);
                     listItems.Add(item);
                 }
@@ -147,9 +155,9 @@ namespace BTNhom2019.DAO
             return listOrders;
         }
 
-        public DataTable toDataTable(String OrderFilter = "Tất cả")
+        public DataTable ToDataTable(String OrderFilter = "Tất cả")
         {
-            List<Order> listOrders = getListOrders(OrderFilter);
+            List<Order> listOrders = GetListOrders(OrderFilter);
 
             DataTable dt = new DataTable();
             dt.Columns.Add("Mã Đơn hàng", typeof(String));
@@ -161,31 +169,29 @@ namespace BTNhom2019.DAO
                 DataRow dr = dt.NewRow();
                 dr["Mã Đơn hàng"] = order.OrderID;
                 dr["Ngày đặt hàng"] = order.OrderDate;
-                dr["Tổng tiền"] = countTotal(order).ToString();
+                dr["Tổng tiền"] = CountTotal(order.Details).ToString();
                 dr["Trạng thái"] = order.OrderStatus;
                 dt.Rows.Add(dr);
             }
 
             return dt;
         }
-        public String genMaxID()
+        public String GenMaxID()
         {
-            String rs = "";
+            if (root.ChildNodes.Count == 0) return "OD-001";
 
-            String lastID = root.LastChild.Attributes["OrderID"].Value.ToString();
+            String lastID = root.LastChild["OrderID"].InnerText.ToString();
             int num = int.Parse(lastID.Split('-')[1]);
             String str = "" + (num + 1);
-            rs = "OD-" + str.PadLeft(3, '0');
-
-            return rs;
+            return "OD-" + str.PadLeft(3, '0');
         }
 
-        public int countTotal(Order order)
+        public int CountTotal(List<Item> list)
         {
             int sum = 0;
-            foreach(Item item in order.Details)
+            foreach(Item item in list)
             {
-                Book book = new BookDAO().getBookByID(item.BookID);
+                Book book = new BookDAO().GetBookByID(item.BookID);
                 sum += book.BookPrice * item.Quantity;
             }
             return sum;

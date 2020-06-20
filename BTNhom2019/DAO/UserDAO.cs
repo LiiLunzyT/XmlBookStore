@@ -26,7 +26,7 @@ namespace BTNhom2019.DAO
             {
                 if(user["UserName"].InnerText == username && user["Password"].InnerText == password && user["UserRole"].InnerText == "Nhân viên")
                 {
-                    return user.Attributes["UserID"].Value;
+                    return user["UserID"].InnerText;
                 }
             }
 
@@ -41,7 +41,7 @@ namespace BTNhom2019.DAO
                     user["Password"].InnerText == password &&
                     user["UserRole"].InnerText == "Khách hàng")
                 {
-                    return user.Attributes["UserID"].Value;
+                    return user["UserID"].InnerText;
                 }
             }
 

@@ -140,7 +140,10 @@ body {
     flex: 1;
 }
 .box-group select {
-    width: 120px;
+    width: 130px;
+}
+.box-group textarea {
+    width: 100%;
 }
 .box-control {
     width: 100%;

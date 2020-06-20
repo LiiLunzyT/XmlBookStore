@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BTNhom2019.DAO;
+using BTNhom2019.Model;
 
 namespace BTNhom2019.KhachHang
 {
@@ -30,11 +31,13 @@ namespace BTNhom2019.KhachHang
                 cart.Visible = false;
             } else
             {
-                String name = dao.getCustomerByUserID(Session["ID"].ToString()).CustomerName;
+                Customer customer = dao.GetCustomerByUserID(Session["ID"].ToString());
+                String name = customer.CustomerName;
                 welcome.InnerText = "Chào khách hàng " + name + "!";
                 login.Visible = false;
                 logout.Visible = true;
                 cart.Visible = true;
+                cartFloat.InnerHtml = customer.Cart.Count.ToString();
             }
         }
 

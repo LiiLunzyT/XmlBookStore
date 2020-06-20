@@ -25,9 +25,9 @@ namespace BTNhom2019.DAO
 
             foreach(XmlNode nStaff in root.ChildNodes)
             {
-                if(nStaff["User"].Attributes["UserID"].Value == UserID)
+                if(nStaff["UserID"].InnerText == UserID)
                 {
-                    staff.StaffID = nStaff.Attributes["StaffID"].Value;
+                    staff.StaffID = nStaff["StaffID"].Value;
                     staff.StaffName = nStaff["StaffName"].InnerText;
                     staff.StaffAddress = nStaff["StaffAddress"].InnerText;
                     staff.StaffContact = nStaff["StaffContact"].InnerText;

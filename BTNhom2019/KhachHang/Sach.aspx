@@ -15,10 +15,10 @@
 
     <script type="text/javascript">
         function addToCart(BookID) {
-            const cartFloat = document.getElementById('cart-float')
+            const cartFloat = document.getElementById('cartFloat')
 
             PageMethods.set_path("Sach.aspx")
-            PageMethods.addBookToCart(BookID, function (data) {
+            PageMethods.AddBookToCart(BookID, function (data) {
                 if (data == "Bạn chưa đăng nhập") {
                     alert(data)
                 } else {

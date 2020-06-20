@@ -39,7 +39,7 @@ namespace BTNhom2019.Admin
         private void bindData()
         {
             AuthorDAO dao = new AuthorDAO();
-            DataTable dt = dao.toDataTable();
+            DataTable dt = dao.ToDataTable();
 
             grdTacGia.DataSource = dt;
             grdTacGia.DataBind();
@@ -48,7 +48,7 @@ namespace BTNhom2019.Admin
         protected void parseData()
         {
             AuthorDAO dao = new AuthorDAO();
-            Author author = dao.getAuthorByIndex(index);
+            Author author = dao.GetAuthorByIndex(index);
 
             inAuthorID.Value = author.AuthorID;
             inAuthorName.Value = author.AuthorName;
@@ -75,7 +75,7 @@ namespace BTNhom2019.Admin
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             AuthorDAO dao = new AuthorDAO();
-            String newID = dao.genMaxID();
+            String newID = dao.GenMaxID();
             mode = "add";
             inAuthorID.Value = newID;
             setButtonEnable(false, false, true, true, false);
@@ -97,7 +97,7 @@ namespace BTNhom2019.Admin
                 author.AuthorID = inAuthorID.Value;
                 author.AuthorName = inAuthorName.Value;
                 author.AuthorContact = inAuthorContact.Value;
-                dao.addAuthor(author);
+                dao.AddAuthor(author);
             }
             if (mode == "edit")
             {
@@ -105,7 +105,7 @@ namespace BTNhom2019.Admin
                 author.AuthorID = inAuthorID.Value;
                 author.AuthorName = inAuthorName.Value;
                 author.AuthorContact = inAuthorContact.Value;
-                dao.updateAuthor(author);
+                dao.UpdateAuthor(author);
             }
 
             init();
@@ -127,7 +127,7 @@ namespace BTNhom2019.Admin
             author.AuthorID = inAuthorID.Value;
             author.AuthorName = inAuthorName.Value;
             author.AuthorContact = inAuthorContact.Value;
-            dao.deleteAuthor(author);
+            dao.DeleteAuthor(author);
 
             init();
             bindData();

@@ -44,16 +44,12 @@ namespace BTNhom2019.Admin
         private void bindData()
         {
             BookDAO dao = new BookDAO();
-            DataTable dt = dao.toDataTable();
+            DataTable dt = dao.ToDataTable();
 
             grdSach.DataSource = dt;
             grdSach.DataBind();
         }
 
-        private void changeNor(HtmlInputText input)
-        {
-
-        }
         private Boolean isFormValid()
         {
             int errors = 0;
@@ -93,14 +89,14 @@ namespace BTNhom2019.Admin
         private void getCombobox()
         {
             AuthorDAO aDAO = new AuthorDAO();
-            DataTable dt1 = aDAO.toDataTable();
+            DataTable dt1 = aDAO.ToDataTable();
             inAuthor.DataSource = dt1;
             inAuthor.DataTextField = "Tên Tác giả";
             inAuthor.DataValueField = "Mã Tác giả";
             inAuthor.DataBind();
 
             CategoryDAO cDAO = new CategoryDAO();
-            DataTable dt2 = cDAO.toDataTable();
+            DataTable dt2 = cDAO.ToDataTable();
             inCategory.DataSource = dt2;
             inCategory.DataTextField = "Tên Thể loại";
             inCategory.DataValueField = "Mã Thể loại";
@@ -117,7 +113,7 @@ namespace BTNhom2019.Admin
         protected void parseData()
         {
             BookDAO dao = new BookDAO();
-            Book book = dao.geBookByIndex(index);
+            Book book = dao.GetBookByIndex(index);
 
             inBookID.Value = book.BookID;
             inBookName.Value = book.BookName;
@@ -159,7 +155,7 @@ namespace BTNhom2019.Admin
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             BookDAO dao = new BookDAO();
-            String newID = dao.genMaxID();
+            String newID = dao.GenMaxID();
             mode = "add";
             inBookID.Value = newID;
             setButtonEnable(false, false, true, true, false);
@@ -196,7 +192,7 @@ namespace BTNhom2019.Admin
                     book.Year = int.Parse(inYear.Value);
                     book.Description = inDescription.Value;
 
-                    dao.addBook(book);
+                    dao.AddBook(book);
                 }
             }
             if (mode == "edit")
@@ -217,7 +213,7 @@ namespace BTNhom2019.Admin
                 book.Year = int.Parse(inYear.Value);
                 book.Description = inDescription.Value;
 
-                dao.updateBook(book);
+                dao.UpdateBook(book);
             }
 
             init();
@@ -235,12 +231,7 @@ namespace BTNhom2019.Admin
         {
             BookDAO dao = new BookDAO();
 
-            Book book = new Book();
-            book.BookName = inBookName.Value;
-            book.BookPrice = int.Parse(inBookPrice.Value);
-            book.BookQuantity = int.Parse(inBookQuantity.Value);
-            book.BookDiscount = int.Parse(inBookDiscount.Value);
-            dao.deleteBook(book);
+            dao.DeleteBook(inBookID.Value);
 
             init();
             bindData();

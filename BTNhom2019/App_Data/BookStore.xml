@@ -2,78 +2,96 @@
 <?xml-stylesheet type="text/xsl" href="web.xsl"?>
 <BookStore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BookStore.xsd">
   <Authors>
-    <Author AuthorID="AU-001">
+    <Author>
+      <AuthorID>AU-001</AuthorID>
       <AuthorName>Tào Triêm</AuthorName>
       <AuthorNickname>Tào Huyết Cần</AuthorNickname>
       <AuthorContact>
       </AuthorContact>
     </Author>
-    <Author AuthorID="AU-002">
+    <Author>
+      <AuthorID>AU-002</AuthorID>
       <AuthorName>Bản Quán Trung</AuthorName>
       <AuthorNickname>La Quán Trung</AuthorNickname>
       <AuthorContact>
       </AuthorContact>
     </Author>
-    <Author AuthorID="AU-003">
+    <Author>
+      <AuthorID>AU-003</AuthorID>
       <AuthorName>Thị Nại Am</AuthorName>
       <AuthorNickname>Thị Nại Am</AuthorNickname>
       <AuthorContact>
       </AuthorContact>
     </Author>
-    <Author AuthorID="AU-004">
+    <Author>
+      <AuthorID>AU-004</AuthorID>
       <AuthorName>Nhữ Trung</AuthorName>
       <AuthorNickname>Ngô Thừa Ân</AuthorNickname>
       <AuthorContact>
       </AuthorContact>
     </Author>
-    <Author AuthorID="AU-005">
+    <Author>
+      <AuthorID>AU-005</AuthorID>
       <AuthorName>Joanne Rowling</AuthorName>
       <AuthorNickname>J. K. Rowling</AuthorNickname>
       <AuthorContact>
       </AuthorContact>
     </Author>
-    <Author AuthorID="AU-006">
+    <Author>
+      <AuthorID>AU-006</AuthorID>
       <AuthorName>Nguyễn Nhật Ánh</AuthorName>
       <AuthorNickname>Nguyễn Nhật Ánh</AuthorNickname>
       <AuthorContact>
       </AuthorContact>
     </Author>
+    <Author>
+      <AuthorID>AU-007</AuthorID>
+      <AuthorName>Võ Thành Luân</AuthorName>
+      <AuthorNickname>Tào Huyết Cần</AuthorNickname>
+      <AuthorContact>0392594134</AuthorContact>
+    </Author>
   </Authors>
   <Producers>
-    <Producer ProducerID="PD-001">
+    <Producer>
+      <ProducerID>PD-001</ProducerID>
       <ProducerName>Nhà Xuất Bản Giáo Dục</ProducerName>
       <ProducerAddress>NULL</ProducerAddress>
       <ProducerContact>
       </ProducerContact>
     </Producer>
-    <Producer ProducerID="PD-002">
+    <Producer>
+      <ProducerID>PD-002</ProducerID>
       <ProducerName>Nhà Xuất Bản Trẻ</ProducerName>
       <ProducerAddress>NULL</ProducerAddress>
       <ProducerContact>
       </ProducerContact>
     </Producer>
-    <Producer ProducerID="PD-003">
+    <Producer>
+      <ProducerID>PD-003</ProducerID>
       <ProducerName>Nhà Xuất Bản Hồng Đức</ProducerName>
       <ProducerAddress>
       </ProducerAddress>
       <ProducerContact>
       </ProducerContact>
     </Producer>
-    <Producer ProducerID="PD-004">
+    <Producer>
+      <ProducerID>PD-004</ProducerID>
       <ProducerName>Nhà Xuất Bản Chính Trị Quốc Gia</ProducerName>
       <ProducerAddress>
       </ProducerAddress>
       <ProducerContact>
       </ProducerContact>
     </Producer>
-    <Producer ProducerID="PD-005">
+    <Producer>
+      <ProducerID>PD-005</ProducerID>
       <ProducerName>Nhà Xuất Bản Văn Học</ProducerName>
       <ProducerAddress>
       </ProducerAddress>
       <ProducerContact>
       </ProducerContact>
     </Producer>
-    <Producer ProducerID="PD-006">
+    <Producer>
+      <ProducerID>PD-006</ProducerID>
       <ProducerName>Nhà Xuất Bản Thế Giới</ProducerName>
       <ProducerAddress>
       </ProducerAddress>
@@ -82,39 +100,51 @@
     </Producer>
   </Producers>
   <Categories>
-    <Category CategoryID="CG-001">
+    <Category>
+      <CategoryID>CG-001</CategoryID>
       <CategoryName>Văn Học Trung Quốc</CategoryName>
       <CategoryDesc>
       </CategoryDesc>
     </Category>
-    <Category CategoryID="CG-002">
+    <Category>
+      <CategoryID>CG-002</CategoryID>
       <CategoryName>Tình Cảm</CategoryName>
       <CategoryDesc>
       </CategoryDesc>
     </Category>
-    <Category CategoryID="CG-003">
+    <Category>
+      <CategoryID>CG-003</CategoryID>
       <CategoryName>Đời Thường</CategoryName>
       <CategoryDesc>
       </CategoryDesc>
     </Category>
-    <Category CategoryID="CG-004">
+    <Category>
+      <CategoryID>CG-004</CategoryID>
       <CategoryName>Giả Tưởng</CategoryName>
       <CategoryDesc>
       </CategoryDesc>
     </Category>
-    <Category CategoryID="CG-005">
+    <Category>
+      <CategoryID>CG-005</CategoryID>
       <CategoryName>Thiếu Nhi</CategoryName>
       <CategoryDesc>
       </CategoryDesc>
     </Category>
-    <Category CategoryID="CG-006">
+    <Category>
+      <CategoryID>CG-006</CategoryID>
       <CategoryName>Kinh Tế</CategoryName>
       <CategoryDesc>
       </CategoryDesc>
     </Category>
+    <Category>
+      <CategoryID>CG-007</CategoryID>
+      <CategoryName>Viễn tưởng</CategoryName>
+      <CategoryDesc>khoa học viễn tưởng</CategoryDesc>
+    </Category>
   </Categories>
   <Books>
-    <Book BookID="BK-001">
+    <Book>
+      <BookID>BK-001</BookID>
       <BookName>Tam Quốc Diên Nghĩa</BookName>
       <BookInfo>
         <Pages>0</Pages>
@@ -125,11 +155,12 @@
       <BookPrice>208800</BookPrice>
       <BookQuantity>1000</BookQuantity>
       <BookDiscount>0</BookDiscount>
-      <BookAuthor AuthorID="AU-002" />
-      <BookCategory CategoryID="CG-001" />
-      <BookProducer ProducerID="PD-005" />
+      <AuthorID>AU-002</AuthorID>
+      <CategoryID>CG-001"</CategoryID>
+      <ProducerID>PD-005</ProducerID>
     </Book>
-    <Book BookID="BK-002">
+    <Book>
+      <BookID>BK-002</BookID>
       <BookName>Thủy Hử</BookName>
       <BookInfo>
         <Pages>0</Pages>
@@ -140,11 +171,12 @@
       <BookPrice>165000</BookPrice>
       <BookQuantity>10000</BookQuantity>
       <BookDiscount>0</BookDiscount>
-      <BookAuthor AuthorID="AU-003" />
-      <BookCategory CategoryID="CG-001" />
-      <BookProducer ProducerID="PD-005" />
+      <AuthorID>AU-003</AuthorID>
+      <CategoryID>CG-001"</CategoryID>
+      <ProducerID>PD-005</ProducerID>
     </Book>
-    <Book BookID="BK-003">
+    <Book>
+      <BookID>BK-003</BookID>
       <BookName>Hồng Lâu Mộng</BookName>
       <BookInfo>
         <Pages>0</Pages>
@@ -155,11 +187,12 @@
       <BookPrice>284250</BookPrice>
       <BookQuantity>10000</BookQuantity>
       <BookDiscount>0</BookDiscount>
-      <BookAuthor AuthorID="AU-001" />
-      <BookCategory CategoryID="CG-001" />
-      <BookProducer ProducerID="PD-005" />
+      <AuthorID>AU-001</AuthorID>
+      <CategoryID>CG-001"</CategoryID>
+      <ProducerID>PD-005</ProducerID>
     </Book>
-    <Book BookID="BK-004">
+    <Book>
+      <BookID>BK-004</BookID>
       <BookName>Tây Du Ký</BookName>
       <BookInfo>
         <Pages>0</Pages>
@@ -170,11 +203,12 @@
       <BookPrice>315000</BookPrice>
       <BookQuantity>10000</BookQuantity>
       <BookDiscount>0</BookDiscount>
-      <BookAuthor AuthorID="AU-004" />
-      <BookCategory CategoryID="CG-001" />
-      <BookProducer ProducerID="PD-005" />
+      <AuthorID>AU-004</AuthorID>
+      <CategoryID>CG-001"</CategoryID>
+      <ProducerID>PD-005</ProducerID>
     </Book>
-    <Book BookID="BK-005">
+    <Book>
+      <BookID>BK-005</BookID>
       <BookName>Mắt Biếc</BookName>
       <BookInfo>
         <Pages>0</Pages>
@@ -185,11 +219,12 @@
       <BookPrice>86973</BookPrice>
       <BookQuantity>1000</BookQuantity>
       <BookDiscount>0</BookDiscount>
-      <BookAuthor AuthorID="AU-006" />
-      <BookCategory CategoryID="CG-003" />
-      <BookProducer ProducerID="PD-006" />
+      <AuthorID>AU-006</AuthorID>
+      <CategoryID>CG-003"</CategoryID>
+      <ProducerID>PD-006</ProducerID>
     </Book>
-    <Book BookID="BK-006">
+    <Book>
+      <BookID>BK-006</BookID>
       <BookName>Trọn Bộ HarryPotter</BookName>
       <BookInfo>
         <Pages>0</Pages>
@@ -200,97 +235,88 @@
       <BookPrice>1051000</BookPrice>
       <BookQuantity>100</BookQuantity>
       <BookDiscount>0</BookDiscount>
-      <BookAuthor AuthorID="AU-005" />
-      <BookCategory CategoryID="CG-004" />
-      <BookProducer ProducerID="PD-003" />
+      <AuthorID>AU-005</AuthorID>
+      <CategoryID>CG-004"</CategoryID>
+      <ProducerID>PD-003</ProducerID>
+    </Book>
+    <Book>
+      <BookID>BK-007</BookID>
+      <BookName>Võ Thành Luân</BookName>
+      <BookInfo>
+        <Pages>100</Pages>
+        <Year>2010</Year>
+        <Size>
+        </Size>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>1000</BookPrice>
+      <BookQuantity>100</BookQuantity>
+      <BookDiscount>10</BookDiscount>
+      <AuthorID>AU-001</AuthorID>
+      <CategoryID>CG-001"</CategoryID>
+      <ProducerID>PD-001</ProducerID>
     </Book>
   </Books>
   <Orders>
-    <Order OrderID="OD-001">
+    <Order>
+      <OrderID>OD-001</OrderID>
       <OrderDetail>
         <Detail>
-          <Book BookID="BK-001" />
+          <BookID>BK-002</BookID>
           <Quantity>1</Quantity>
-          <Price>208800</Price>
-        </Detail>
-        <Detail>
-          <Book BookID="BK-002" />
-          <Quantity>1</Quantity>
-          <Price>165000</Price>
-        </Detail>
-        <Detail>
-          <Book BookID="BK-003" />
-          <Quantity>1</Quantity>
-          <Price>284250</Price>
-        </Detail>
-        <Detail>
-          <Book BookID="BK-004" />
-          <Quantity>1</Quantity>
-          <Price>315000</Price>
         </Detail>
       </OrderDetail>
-      <OrderDate>2020-06-09</OrderDate>
+      <OrderDate>20/06/2020 12:16:45 PM</OrderDate>
       <OrderStatus>Chờ duyệt</OrderStatus>
-      <Customer CustomerID="CS-001" />
+      <CustomerID>CS-001</CustomerID>
     </Order>
-    <Order OrderID="OD-002">
+    <Order>
+      <OrderID>OD-002</OrderID>
       <OrderDetail>
         <Detail>
-          <Book BookID="BK-005" />
-          <Quantity>2</Quantity>
-          <Price>173946</Price>
-        </Detail>
-      </OrderDetail>
-      <OrderDate>2020-05-20</OrderDate>
-      <OrderStatus>Chờ duyệt</OrderStatus>
-      <Customer CustomerID="CS-001" />
-    </Order>
-    <Order OrderID="OD-003">
-      <OrderDetail>
-        <Detail>
-          <Book BookID="BK-006" />
+          <BookID>BK-002</BookID>
           <Quantity>1</Quantity>
-          <Price>1051000</Price>
         </Detail>
       </OrderDetail>
-      <OrderDate>2020-07-20</OrderDate>
+      <OrderDate>20/06/2020 12:18:17 PM</OrderDate>
       <OrderStatus>Chờ duyệt</OrderStatus>
-      <Customer CustomerID="CS-001" />
+      <CustomerID>CS-001</CustomerID>
     </Order>
   </Orders>
   <Customers>
-    <Customer CustomerID="CS-001">
+    <Customer>
+      <CustomerID>CS-001</CustomerID>
       <CustomerName>Nguyễn Tấn Kiệt</CustomerName>
       <CustomerAddress>Ninh Hoà</CustomerAddress>
       <CustomerContact>ntk@gmail.com</CustomerContact>
       <Cart>
         <CartItem>
-          <BookID>BK-001</BookID>
-          <Quantity>2</Quantity>
-        </CartItem>
-        <CartItem>
-          <BookID>BK-003</BookID>
+          <BookID>BK-002</BookID>
           <Quantity>1</Quantity>
         </CartItem>
       </Cart>
-      <User UserID="US-002" />
+      <UserID>US-002</UserID>
     </Customer>
   </Customers>
   <Staffs>
-    <Staff StaffID="ST-001">
+    <Staff>
+      <StaffID>ST-001</StaffID>
       <StaffName>Võ Thành Luân</StaffName>
       <StaffAddress>Nha Trang</StaffAddress>
       <StaffContact>0392594134</StaffContact>
-      <User UserID="US-001" />
+      <UserID>US-001</UserID>
     </Staff>
   </Staffs>
   <Users>
-    <User UserID="US-001">
+    <User>
+      <UserID>US-001</UserID>
       <UserName>admin</UserName>
       <Password>123</Password>
       <UserRole>Nhân viên</UserRole>
     </User>
-    <User UserID="US-002">
+    <User>
+      <UserID>US-002</UserID>
       <UserName>kh1</UserName>
       <Password>1</Password>
       <UserRole>Khách hàng</UserRole>

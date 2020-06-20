@@ -5,34 +5,36 @@
     <xsl:output method="xml" indent="yes"/>
 	<xsl:param name="CustomerID"></xsl:param>
     <xsl:template match="/">
-		<xsl:variable name="_Customer" select="//Customer[@CustomerID = $CustomerID]" />
+		<xsl:variable name="_Customer" select="//Customer[CustomerID = CustomerID]" />
 		<table border="1">
 			<tr>
-				<td>Mã Sách</td>
-				<td>Tên Sách</td>
-				<td>Số lượng</td>
-				<td>Đơn giá</td>
-				<td>Tổng</td>
+				<th>Mã Sách</th>
+				<th>Tên Sách</th>
+				<th>Số lượng</th>
+				<th>Đơn giá</th>
+				<th>Tổng</th>
 			</tr>
 			<xsl:for-each select="$_Customer/Cart/CartItem">
 				<tr>
-					<xsl:variable name="_Book" select="//Book[@BookID = current()/BookID]" />
+					<xsl:variable name="_Book" select="//Book[BookID = current()/BookID]" />
 					<td>
-						<xsl:value-of select="$_Book/@BookID"/>
+						<xsl:value-of select="$_Book/BookID"/>
 					</td>
 					<td>
 						<xsl:value-of select="$_Book/BookName"/>
 					</td>
-					<td>
+					<td style="text-align: center;">
+						<button class="btn" onclick="btnDecreaseOnClick('{$_Book/BookID}')">-</button>
 						<xsl:value-of select="Quantity"/>
+						<button class="btn" onclick="btnIncreaseOnClick('{$_Book/BookID}')">+</button>
 					</td>
-					<td>
-						<xsl:value-of select="$_Book/BookPrice"/>
+					<td style="text-align: right">
+						<xsl:value-of select="format-number($_Book/BookPrice, '###,###,###')"/>
 					</td>
-					<td>
-						<xsl:value-of select="$_Book/BookPrice * Quantity"/>
+					<td style="text-align: right">
+						<xsl:value-of select="format-number($_Book/BookPrice * Quantity, '###,###,###')"/>
+						VNĐ
 					</td>
-					
 				</tr>
 			</xsl:for-each>
 		</table>

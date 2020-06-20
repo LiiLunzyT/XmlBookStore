@@ -24,7 +24,7 @@ namespace BTNhom2019.Admin
         protected void bindData()
         {
             OrderDAO dao = new OrderDAO();
-            DataTable dt = dao.toDataTable(orderFilter.SelectedValue);
+            DataTable dt = dao.ToDataTable(orderFilter.SelectedValue);
 
             grdDonHang.DataSource = dt;
             grdDonHang.DataBind();

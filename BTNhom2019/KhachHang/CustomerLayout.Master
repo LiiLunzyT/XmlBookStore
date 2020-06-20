@@ -36,7 +36,7 @@
             <div id="cart" class="cart" runat="server">
                 <a href="ThanhToan.aspx" runat="server">
                     <i class="fas fa-shopping-cart"></i>
-                    <div id="cart-float" class="cart-float">0</div>
+                    <div id="cartFloat" runat="server" class="cart-float">0</div>
                 </a>
             </div>
         </nav>

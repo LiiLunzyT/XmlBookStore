@@ -12,7 +12,7 @@ namespace BTNhom2019.DAO
     {
         public XmlDocument doc;
         public XmlNode root;
-        String connectString = "~/App_Data/BookStore.xml";
+        readonly String connectString = "~/App_Data/BookStore.xml";
 
         public AuthorDAO()
         {
@@ -21,64 +21,70 @@ namespace BTNhom2019.DAO
             root = doc.SelectSingleNode("//Authors");
         }
 
-        public Author getAuthorByID(String AuthorID)
+        public Author GetAuthorByID(String AuthorID)
         {
-            XmlNode nAuthor = root.SelectSingleNode("Author[@AuthorID = '" + AuthorID + "']");
-            Author author = new Author();
-            author.AuthorID = nAuthor.Attributes["AuthorID"].Value.ToString();
-            author.AuthorName = nAuthor["AuthorName"].InnerText.ToString();
-            author.AuthorContact = nAuthor["AuthorContact"].InnerText.ToString();
+            XmlNode nAuthor = root.SelectSingleNode("Author[AuthorID = '" + AuthorID + "']");
+            Author author = new Author
+            {
+                AuthorID = nAuthor["AuthorID"].InnerText.ToString(),
+                AuthorName = nAuthor["AuthorName"].InnerText.ToString(),
+                AuthorContact = nAuthor["AuthorContact"].InnerText.ToString()
+            };
             return author;
         }
 
-        public Author getAuthorByIndex(int index)
+        public Author GetAuthorByIndex(int index)
         {
-            Author author = new Author();
             XmlNode nAuthor = root.ChildNodes[index];
-            author.AuthorID = nAuthor.Attributes["AuthorID"].Value.ToString();
-            author.AuthorName = nAuthor["AuthorName"].InnerText.ToString();
-            author.AuthorContact = nAuthor["AuthorContact"].InnerText.ToString();
+            Author author = new Author
+            {
+                AuthorID = nAuthor["AuthorID"].InnerText.ToString(),
+                AuthorName = nAuthor["AuthorName"].InnerText.ToString(),
+                AuthorContact = nAuthor["AuthorContact"].InnerText.ToString()
+            };
             return author;
         }
 
-        public void addAuthor(Author author)
+        public void AddAuthor(Author author)
         {
             XmlNode nAuthor = root.ChildNodes[0];
             XmlNode newAuthor = nAuthor.CloneNode(true);
-            newAuthor.Attributes["AuthorID"].Value = author.AuthorID;
+            newAuthor["AuthorID"].InnerText = author.AuthorID;
             newAuthor["AuthorName"].InnerText = author.AuthorName;
             newAuthor["AuthorContact"].InnerText = author.AuthorContact;
             root.AppendChild(newAuthor);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public void deleteAuthor(Author author)
+        public void DeleteAuthor(Author author)
         {
             String AuthorID = author.AuthorID;
-            XmlNode nAuthor = root.SelectSingleNode("Author[@AuthorID = '" + AuthorID + "']");
+            XmlNode nAuthor = root.SelectSingleNode("Author[AuthorID = '" + AuthorID + "']");
             root.RemoveChild(nAuthor);
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public void updateAuthor(Author author)
+        public void UpdateAuthor(Author author)
         {
             String AuthorID = author.AuthorID;
-            XmlNode nAuthor = root.SelectSingleNode("Author[@AuthorID = '" + AuthorID + "']");
+            XmlNode nAuthor = root.SelectSingleNode("Author[AuthorID = '" + AuthorID + "']");
             nAuthor["AuthorName"].InnerText = author.AuthorName;
             nAuthor["AuthorContact"].InnerText = author.AuthorContact;
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
         }
 
-        public List<Author> getListAuthors()
+        public List<Author> GetListAuthors()
         {
             List<Author> listAuthors = new List<Author>();
 
             foreach (XmlNode node in root.ChildNodes)
             {
-                Author author = new Author();
-                author.AuthorID = node.Attributes["AuthorID"].Value.ToString();
-                author.AuthorName = node["AuthorName"].InnerText.ToString();
-                author.AuthorContact = node["AuthorContact"].InnerText.ToString();
+                Author author = new Author
+                {
+                    AuthorID = node["AuthorID"].InnerText.ToString(),
+                    AuthorName = node["AuthorName"].InnerText.ToString(),
+                    AuthorContact = node["AuthorContact"].InnerText.ToString()
+                };
 
                 listAuthors.Add(author);
             }
@@ -86,9 +92,9 @@ namespace BTNhom2019.DAO
             return listAuthors;
         }
 
-        public DataTable toDataTable()
+        public DataTable ToDataTable()
         {
-            List<Author> listAuthors = getListAuthors();
+            List<Author> listAuthors = GetListAuthors();
 
             DataTable dt = new DataTable();
             dt.Columns.Add("Mã Tác giả", typeof(String));
@@ -106,16 +112,14 @@ namespace BTNhom2019.DAO
             return dt;
         }
 
-        public String genMaxID()
+        public String GenMaxID()
         {
-            String rs = "";
+            if (root.ChildNodes.Count == 0) return "AU-001";
 
-            String lastID = root.LastChild.Attributes["AuthorID"].Value.ToString();
+            String lastID = root.LastChild["AuthorID"].InnerText.ToString();
             int num = int.Parse(lastID.Split('-')[1]);
             String str = "" + (num + 1);
-            rs = "AU-" + str.PadLeft(3, '0');
-
-            return rs;
+            return "AU-" + str.PadLeft(3, '0');
         }
     }
 }

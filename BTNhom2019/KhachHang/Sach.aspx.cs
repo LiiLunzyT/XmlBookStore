@@ -35,7 +35,7 @@ namespace BTNhom2019.KhachHang
         }
 
         [System.Web.Services.WebMethod]
-        public static String addBookToCart(String BookID)
+        public static String AddBookToCart(String BookID)
         {
             CustomerDAO dao = new CustomerDAO();
             
@@ -45,11 +45,11 @@ namespace BTNhom2019.KhachHang
             }
 
             String UserID = HttpContext.Current.Session["ID"].ToString();
-            Customer customer = dao.getCustomerByUserID(UserID);
+            Customer customer = dao.GetCustomerByUserID(UserID);
 
-            dao.addNewItemToCart(customer.CustomerID, BookID);
+            dao.AddNewItemToCart(customer.CustomerID, BookID);
 
-            return JsonConvert.SerializeObject(dao.getCustomerByUserID(UserID).Cart);
+            return JsonConvert.SerializeObject(dao.GetCustomerByUserID(UserID).Cart);
         }
     }
 }

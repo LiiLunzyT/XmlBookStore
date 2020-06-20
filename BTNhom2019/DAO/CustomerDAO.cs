@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
 
@@ -19,15 +20,15 @@ namespace BTNhom2019.DAO
             root = doc.SelectSingleNode("//Customers");
         }
 
-        public Customer getCustomerByUserID(String UserID)
+        public Customer GetCustomerByUserID(String UserID)
         {
             Customer customer = new Customer();
 
             foreach (XmlNode nCustomer in root.ChildNodes)
             {
-                if (nCustomer["User"].Attributes["UserID"].Value == UserID)
+                if (nCustomer["UserID"].InnerText == UserID)
                 {
-                    customer.CustomerID = nCustomer.Attributes["CustomerID"].Value;
+                    customer.CustomerID = nCustomer["CustomerID"].InnerText;
                     customer.CustomerName = nCustomer["CustomerName"].InnerText;
                     customer.CustomerAddress = nCustomer["CustomerAddress"].InnerText;
                     customer.CustomerContact = nCustomer["CustomerContact"].InnerText;
@@ -48,12 +49,12 @@ namespace BTNhom2019.DAO
             return null;
         }
 
-        public Customer getCustomerByCustomerID(String CustomerID)
+        public Customer GetCustomerByCustomerID(String CustomerID)
         {
             Customer customer = new Customer();
-            XmlNode nCustomer = root.SelectSingleNode("Customer[@CustomerID = '" + CustomerID + "']");
+            XmlNode nCustomer = root.SelectSingleNode("Customer[CustomerID = '" + CustomerID + "']");
 
-            customer.CustomerID = nCustomer.Attributes["CustomerID"].Value;
+            customer.CustomerID = nCustomer["CustomerID"].InnerText;
             customer.CustomerName = nCustomer["CustomerName"].InnerText;
             customer.CustomerAddress = nCustomer["CustomerAddress"].InnerText;
             customer.CustomerContact = nCustomer["CustomerContact"].InnerText;
@@ -70,9 +71,9 @@ namespace BTNhom2019.DAO
             return customer;
         }
 
-        public Customer addNewItemToCart(String CustomerID, String BookID)
+        public Customer AddNewItemToCart(String CustomerID, String BookID)
         {
-            XmlNode nCustomer = root.SelectSingleNode("Customer[@CustomerID = '" + CustomerID + "']");
+            XmlNode nCustomer = root.SelectSingleNode("Customer[CustomerID = '" + CustomerID + "']");
             XmlNode nCart = nCustomer["Cart"];
             Boolean isExist = false;
             foreach(XmlNode nItem in nCart.ChildNodes)
@@ -98,8 +99,25 @@ namespace BTNhom2019.DAO
                 nCart.AppendChild(nItem);
             }
 
+            Save();
+            return GetCustomerByCustomerID(CustomerID);
+        }
+        public void EmptyCart(String CustomerID)
+        {
+            XmlNode nCustomer = root.SelectSingleNode("Customer[CustomerID = '" + CustomerID + "']");
+            nCustomer["Cart"].InnerXml = "";
+        }
+        public void EmptyCart(Customer customer)
+        {
+            String CustomerID = customer.CustomerID;
+            XmlNode nCustomer = root.SelectSingleNode("Customer[CustomerID = '" + CustomerID + "']");
+            nCustomer["Cart"].InnerXml = "";
+            Save();
+        }
+
+        private void Save()
+        {
             doc.Save(HttpContext.Current.Server.MapPath(connectString));
-            return getCustomerByCustomerID(CustomerID);
         }
     }
 }
