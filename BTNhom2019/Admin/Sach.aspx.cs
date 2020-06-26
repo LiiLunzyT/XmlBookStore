@@ -13,7 +13,6 @@ namespace BTNhom2019.Admin
 {
     public partial class Sach : System.Web.UI.Page
     {
-        static int index = -1;
         static String mode = "view";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,7 +20,6 @@ namespace BTNhom2019.Admin
             if(!IsPostBack)
             {
                 getCombobox();
-                bindData();
                 init();
             }
         }
@@ -35,10 +33,12 @@ namespace BTNhom2019.Admin
             btnDelete.Enabled = delete;
         }
 
-        private void init()
+        public void init()
         {
-            setButtonEnable(true, false, false, false, false);
+            emptyForm();
+            disableForm();
             bindData();
+            setButtonEnable(true, false, false, false, false);
         }
 
         private void bindData()
@@ -50,32 +50,94 @@ namespace BTNhom2019.Admin
             grdSach.DataBind();
         }
 
+        private void disableForm()
+        {
+            inBookName.Disabled = true;
+            inBookPrice.Disabled = true;
+            inBookQuantity.Disabled = true;
+            inBookDiscount.Disabled = true;
+            inAuthor.Enabled = false;
+            inCategory.Enabled = false;
+            inProducer.Enabled = false;
+            inYear.Disabled = true;
+            inPages.Disabled = true;
+            inSize.Disabled = true;
+            inDescription.Disabled = true;
+        }
+        
+        private void enableForm()
+        {
+            inBookName.Disabled = false;
+            inBookPrice.Disabled = false;
+            inBookQuantity.Disabled = false;
+            inBookDiscount.Disabled = false;
+            inAuthor.Enabled = true;
+            inCategory.Enabled = true;
+            inProducer.Enabled = true;
+            inYear.Disabled = false;
+            inPages.Disabled = false;
+            inSize.Disabled = false;
+            inDescription.Disabled = false;
+        }
+
         private Boolean isFormValid()
         {
             int errors = 0;
             if(inBookName.Value.Trim() == "")
             {
-                inBookName.Style["border-color"] = "red";
+                inBookName.Style["border-color"] = "pink";
                 errors++;
             }
             if (inBookPrice.Value.Trim() == "")
             {
-                inBookPrice.Style["border-color"] = "red";
+                inBookPrice.Style["border-color"] = "pink";
                 errors++;
             }
-            if (inBookName.Value.Trim() == "")
+            if (inBookQuantity.Value.Trim() == "")
             {
-                inBookName.Style["border-color"] = "red";
+                inBookQuantity.Style["border-color"] = "pink";
                 errors++;
             }
-            if (inBookName.Value.Trim() == "")
+
+            if (inBookDiscount.Value.Trim() == "")
             {
-                inBookName.Style["border-color"] = "red";
+                inBookDiscount.Style["border-color"] = "pink";
                 errors++;
             }
-            if (inBookName.Value.Trim() == "")
+
+            if (inAuthor.SelectedValue.Trim() == "empty")
             {
-                inBookName.Style["border-color"] = "red";
+                inAuthor.Style["border-color"] = "pink";
+                errors++;
+            }
+
+            if (inCategory.SelectedValue.Trim() == "empty")
+            {
+                inCategory.Style["border-color"] = "pink";
+                errors++;
+            }
+
+            if (inProducer.SelectedValue.Trim() == "empty")
+            {
+                inProducer.Style["border-color"] = "pink";
+                errors++;
+            }
+
+            if (inYear.Value.Trim() == "")
+            {
+                inYear.Style["border-color"] = "pink";
+                errors++;
+            }
+
+            if (inPages.Value.Trim() == "")
+            {
+                inPages.Style["border-color"] = "pink";
+                errors++;
+            }
+
+            if (inSize.Value.Trim() == "")
+            {
+                inSize.Style["border-color"] = "pink";
                 errors++;
             }
 
@@ -90,6 +152,11 @@ namespace BTNhom2019.Admin
         {
             AuthorDAO aDAO = new AuthorDAO();
             DataTable dt1 = aDAO.ToDataTable();
+            DataRow empty1 = dt1.NewRow();
+            empty1["Mã Tác giả"] = "empty";
+            empty1["Tên Tác giả"] = "--Chọn--";
+            empty1["Liên lạc"] = "";
+            dt1.Rows.InsertAt(empty1, 0);
             inAuthor.DataSource = dt1;
             inAuthor.DataTextField = "Tên Tác giả";
             inAuthor.DataValueField = "Mã Tác giả";
@@ -97,6 +164,11 @@ namespace BTNhom2019.Admin
 
             CategoryDAO cDAO = new CategoryDAO();
             DataTable dt2 = cDAO.ToDataTable();
+            DataRow empty2 = dt2.NewRow();
+            empty2["Mã Thể loại"] = "empty";
+            empty2["Tên Thể loại"] = "--Chọn--";
+            empty2["Mô tả"] = "";
+            dt2.Rows.InsertAt(empty2, 0);
             inCategory.DataSource = dt2;
             inCategory.DataTextField = "Tên Thể loại";
             inCategory.DataValueField = "Mã Thể loại";
@@ -104,6 +176,12 @@ namespace BTNhom2019.Admin
 
             ProducerDAO pDAO = new ProducerDAO();
             DataTable dt3 = pDAO.toDataTable();
+            DataRow empty3 = dt3.NewRow();
+            empty3["Mã Nhà xuất bản"] = "empty";
+            empty3["Tên Nhà xuất bản"] = "--Chọn--";
+            empty3["Liên Hệ"] = "";
+            empty3["Địa Chỉ"] = "";
+            dt3.Rows.InsertAt(empty3, 0);
             inProducer.DataSource = dt3;
             inProducer.DataTextField = "Tên Nhà xuất bản";
             inProducer.DataValueField = "Mã Nhà xuất bản";
@@ -113,7 +191,7 @@ namespace BTNhom2019.Admin
         protected void parseData()
         {
             BookDAO dao = new BookDAO();
-            Book book = dao.GetBookByIndex(index);
+            Book book = dao.GetBookByID(grdSach.SelectedRow.Cells[1].Text);
 
             inBookID.Value = book.BookID;
             inBookName.Value = book.BookName;
@@ -144,8 +222,6 @@ namespace BTNhom2019.Admin
 
         protected void grdSach_SelectedIndexChanged(object sender, EventArgs e)
         {
-            index = grdSach.SelectedIndex;
-
             mode = "selected";
             setButtonEnable(false, true, false, true, true);
 
@@ -157,6 +233,7 @@ namespace BTNhom2019.Admin
             BookDAO dao = new BookDAO();
             String newID = dao.GenMaxID();
             mode = "add";
+            enableForm();
             inBookID.Value = newID;
             setButtonEnable(false, false, true, true, false);
         }
@@ -164,6 +241,7 @@ namespace BTNhom2019.Admin
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             mode = "edit";
+            enableForm();
             setButtonEnable(false, false, true, true, false);
         }
 
@@ -193,6 +271,7 @@ namespace BTNhom2019.Admin
                     book.Description = inDescription.Value;
 
                     dao.AddBook(book);
+                    init();
                 }
             }
             if (mode == "edit")
@@ -214,16 +293,13 @@ namespace BTNhom2019.Admin
                 book.Description = inDescription.Value;
 
                 dao.UpdateBook(book);
+                init();
             }
-
-            init();
-            emptyForm();
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             mode = "view";
-            emptyForm();
             init();
         }
 
@@ -234,6 +310,11 @@ namespace BTNhom2019.Admin
             dao.DeleteBook(inBookID.Value);
 
             init();
+        }
+
+        protected void grdSach_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdSach.PageIndex = e.NewPageIndex;
             bindData();
         }
     }

@@ -12,7 +12,6 @@ namespace BTNhom2019.Admin
 {
     public partial class TacGia : System.Web.UI.Page
     {
-        static int index = -1;
         static String mode = "view";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -48,7 +47,7 @@ namespace BTNhom2019.Admin
         protected void parseData()
         {
             AuthorDAO dao = new AuthorDAO();
-            Author author = dao.GetAuthorByIndex(index);
+            Author author = dao.GetAuthorByID(grdTacGia.SelectedRow.Cells[1].Text);
 
             inAuthorID.Value = author.AuthorID;
             inAuthorName.Value = author.AuthorName;
@@ -64,8 +63,6 @@ namespace BTNhom2019.Admin
 
         protected void grdTacGia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            index = grdTacGia.SelectedIndex;
-
             mode = "selected";
             setButtonEnable(false, true, false, true, true);
 
@@ -130,6 +127,12 @@ namespace BTNhom2019.Admin
             dao.DeleteAuthor(author);
 
             init();
+            bindData();
+        }
+
+        protected void grdTacGia_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdTacGia.PageIndex = e.NewPageIndex;
             bindData();
         }
     }

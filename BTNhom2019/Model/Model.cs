@@ -18,7 +18,6 @@ namespace BTNhom2019.Model
         public String ProducerName;
         public String ProducerAddress;
         public String ProducerContact;
-
     }
 
     public class Category

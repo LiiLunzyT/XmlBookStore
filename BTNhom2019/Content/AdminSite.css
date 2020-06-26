@@ -6,12 +6,19 @@
 
 body {
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
 .master-form {
     width: 100%;
+    display: flex;
+}
+
+.page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .page-title {
@@ -20,18 +27,18 @@ body {
 }
 
 .navbar {
-    width: 100%;
+    height: 100vh;
+    width: 250px;
     display: flex;
-    align-items: center;
-    height: 50px;
+    flex-direction: column;
     background-color: black;
-    justify-content: space-around;
 }
 
 .nav-menu {
-    height: 100%;
+    height: 80%;
     list-style-type: none;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -72,22 +79,25 @@ body {
     padding: 5px;
 }
 
-.page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .grid-view-container {
-    width: 80%;
-    height: 250px;
+    width: 90%;
+    height: 290px;
     overflow-y: scroll;
     border: 1px solid black;
 }
 .grid-view {
     width: 100%;
 }
-.grid-view th, .grid-view td {
+.grid-view-header th {
+    font-size: 25px;
     padding: 5px;
+}
+.grid-view-row td {
+    font-size: 18px;
+    padding: 5px;
+}
+.grid-view-row:nth-of-type(2n) {
+    background-color: lightgray;
 }
 .edit-box {
     margin-top: 10px;
@@ -110,7 +120,7 @@ body {
     padding: 10px;
 }
 .box-sach {
-    width: 1000px;
+    width: 90%;
 }
 .small-box-1, .small-box-2 {
     width: 50%;

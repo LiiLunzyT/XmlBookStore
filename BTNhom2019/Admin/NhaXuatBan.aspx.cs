@@ -12,7 +12,6 @@ namespace BTNhom2019.Admin
 {
     public partial class NhaXuatBan : System.Web.UI.Page
     {
-        static int index = -1;
         static String mode = "view";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -51,7 +50,7 @@ namespace BTNhom2019.Admin
         protected void parseData()
         {
             ProducerDAO dao = new ProducerDAO();
-            Producer producer = dao.geProducerByIndex(index);
+            Producer producer = dao.getProducerByID(grdNhaXuatBan.SelectedRow.Cells[1].Text);
 
             inProducerID.Value = producer.ProducerID;
             inProducerName.Value = producer.ProducerName;
@@ -69,8 +68,6 @@ namespace BTNhom2019.Admin
 
         protected void grdNhaXuatBan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            index = grdNhaXuatBan.SelectedIndex;
-
             mode = "selected";
             setButtonEnable(false, true, false, true, true);
 
@@ -138,6 +135,12 @@ namespace BTNhom2019.Admin
             dao.deleteProducer(producer);
 
             init();
+            bindData();
+        }
+
+        protected void grdNhaXuatBan_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdNhaXuatBan.PageIndex = e.NewPageIndex;
             bindData();
         }
     }

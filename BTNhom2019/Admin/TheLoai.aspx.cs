@@ -12,7 +12,6 @@ namespace BTNhom2019.Admin
 {
     public partial class TheLoai : System.Web.UI.Page
     {
-        static int index = -1;
         static String mode = "view";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -48,7 +47,7 @@ namespace BTNhom2019.Admin
         protected void parseData()
         {
             CategoryDAO dao = new CategoryDAO();
-            Category category = dao.GetCategoryByIndex(index);
+            Category category = dao.GetCategoryByID(grdTheLoai.SelectedRow.Cells[1].Text);
 
             inCategoryID.Value = category.CategoryID;
             inCategoryName.Value = category.CategoryName;
@@ -64,8 +63,6 @@ namespace BTNhom2019.Admin
 
         protected void grdTheLoai_SelectedIndexChanged(object sender, EventArgs e)
         {
-            index = grdTheLoai.SelectedIndex;
-
             mode = "selected";
             setButtonEnable(false, true, false, true, true);
 
@@ -130,6 +127,12 @@ namespace BTNhom2019.Admin
             dao.DeleteCategory(category);
 
             init();
+            bindData();
+        }
+
+        protected void grdTheLoai_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdTheLoai.PageIndex = e.NewPageIndex;
             bindData();
         }
     }

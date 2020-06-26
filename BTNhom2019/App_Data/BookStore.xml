@@ -50,6 +50,12 @@
       <AuthorNickname>Tào Huyết Cần</AuthorNickname>
       <AuthorContact>0392594134</AuthorContact>
     </Author>
+    <Author>
+      <AuthorID>AU-008</AuthorID>
+      <AuthorName>Kim Dung</AuthorName>
+      <AuthorNickname>Tào Huyết Cần</AuthorNickname>
+      <AuthorContact>Chưa có</AuthorContact>
+    </Author>
   </Authors>
   <Producers>
     <Producer>
@@ -98,6 +104,18 @@
       <ProducerContact>
       </ProducerContact>
     </Producer>
+    <Producer>
+      <ProducerID>PD-007</ProducerID>
+      <ProducerName>Nhà Xuất Bản Cồn Dê</ProducerName>
+      <ProducerAddress>Cồn Dê</ProducerAddress>
+      <ProducerContact>Chưa có</ProducerContact>
+    </Producer>
+    <Producer>
+      <ProducerID>PD-008</ProducerID>
+      <ProducerName>Nhà Xuất Bản Thân Thiện</ProducerName>
+      <ProducerAddress>Hồ Chí Minh</ProducerAddress>
+      <ProducerContact>Chưa có</ProducerContact>
+    </Producer>
   </Producers>
   <Categories>
     <Category>
@@ -141,120 +159,181 @@
       <CategoryName>Viễn tưởng</CategoryName>
       <CategoryDesc>khoa học viễn tưởng</CategoryDesc>
     </Category>
+    <Category>
+      <CategoryID>CG-008</CategoryID>
+      <CategoryName>Kinh dị</CategoryName>
+      <CategoryDesc>Sách không dành cho trẻ em.</CategoryDesc>
+    </Category>
   </Categories>
   <Books>
     <Book>
       <BookID>BK-001</BookID>
-      <BookName>Tam Quốc Diên Nghĩa</BookName>
+      <BookName>Tam Quốc Diễn Nghĩa</BookName>
       <BookInfo>
-        <Pages>0</Pages>
+        <Pages>200</Pages>
         <Year>1999</Year>
-        <Size>0cm x 0cm</Size>
-        <Description>Chưa có</Description>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
       </BookInfo>
       <BookPrice>208800</BookPrice>
-      <BookQuantity>1000</BookQuantity>
+      <BookQuantity>100</BookQuantity>
       <BookDiscount>0</BookDiscount>
       <AuthorID>AU-002</AuthorID>
-      <CategoryID>CG-001"</CategoryID>
+      <CategoryID>CG-001</CategoryID>
       <ProducerID>PD-005</ProducerID>
     </Book>
     <Book>
       <BookID>BK-002</BookID>
-      <BookName>Thủy Hử</BookName>
+      <BookName>Thuỷ Hử</BookName>
       <BookInfo>
-        <Pages>0</Pages>
+        <Pages>200</Pages>
         <Year>1999</Year>
-        <Size>0cm x 0cm</Size>
-        <Description>Chưa có</Description>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
       </BookInfo>
-      <BookPrice>165000</BookPrice>
-      <BookQuantity>10000</BookQuantity>
-      <BookDiscount>0</BookDiscount>
+      <BookPrice>208800</BookPrice>
+      <BookQuantity>50</BookQuantity>
+      <BookDiscount>15</BookDiscount>
       <AuthorID>AU-003</AuthorID>
-      <CategoryID>CG-001"</CategoryID>
+      <CategoryID>CG-001</CategoryID>
       <ProducerID>PD-005</ProducerID>
     </Book>
     <Book>
       <BookID>BK-003</BookID>
       <BookName>Hồng Lâu Mộng</BookName>
       <BookInfo>
-        <Pages>0</Pages>
+        <Pages>200</Pages>
         <Year>1999</Year>
-        <Size>0cm x 0cm</Size>
-        <Description>Chưa có</Description>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
       </BookInfo>
-      <BookPrice>284250</BookPrice>
-      <BookQuantity>10000</BookQuantity>
-      <BookDiscount>0</BookDiscount>
+      <BookPrice>208800</BookPrice>
+      <BookQuantity>50</BookQuantity>
+      <BookDiscount>15</BookDiscount>
       <AuthorID>AU-001</AuthorID>
-      <CategoryID>CG-001"</CategoryID>
+      <CategoryID>CG-001</CategoryID>
       <ProducerID>PD-005</ProducerID>
     </Book>
     <Book>
       <BookID>BK-004</BookID>
       <BookName>Tây Du Ký</BookName>
       <BookInfo>
-        <Pages>0</Pages>
+        <Pages>200</Pages>
         <Year>1999</Year>
-        <Size>0cm x 0cm</Size>
-        <Description>Chưa có</Description>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
       </BookInfo>
-      <BookPrice>315000</BookPrice>
-      <BookQuantity>10000</BookQuantity>
-      <BookDiscount>0</BookDiscount>
+      <BookPrice>208800</BookPrice>
+      <BookQuantity>50</BookQuantity>
+      <BookDiscount>15</BookDiscount>
       <AuthorID>AU-004</AuthorID>
-      <CategoryID>CG-001"</CategoryID>
+      <CategoryID>CG-001</CategoryID>
       <ProducerID>PD-005</ProducerID>
     </Book>
     <Book>
       <BookID>BK-005</BookID>
       <BookName>Mắt Biếc</BookName>
       <BookInfo>
-        <Pages>0</Pages>
+        <Pages>200</Pages>
         <Year>1999</Year>
-        <Size>0cm x 0cm</Size>
-        <Description>Chưa có</Description>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
       </BookInfo>
-      <BookPrice>86973</BookPrice>
-      <BookQuantity>1000</BookQuantity>
-      <BookDiscount>0</BookDiscount>
+      <BookPrice>208800</BookPrice>
+      <BookQuantity>50</BookQuantity>
+      <BookDiscount>15</BookDiscount>
       <AuthorID>AU-006</AuthorID>
-      <CategoryID>CG-003"</CategoryID>
+      <CategoryID>CG-003</CategoryID>
       <ProducerID>PD-006</ProducerID>
     </Book>
     <Book>
       <BookID>BK-006</BookID>
-      <BookName>Trọn Bộ HarryPotter</BookName>
+      <BookName>Trọn Bộ Harry Potter</BookName>
       <BookInfo>
-        <Pages>0</Pages>
+        <Pages>200</Pages>
         <Year>1999</Year>
-        <Size>0cm x 0cm</Size>
-        <Description>Chưa có</Description>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
       </BookInfo>
-      <BookPrice>1051000</BookPrice>
-      <BookQuantity>100</BookQuantity>
-      <BookDiscount>0</BookDiscount>
+      <BookPrice>208800</BookPrice>
+      <BookQuantity>50</BookQuantity>
+      <BookDiscount>15</BookDiscount>
       <AuthorID>AU-005</AuthorID>
-      <CategoryID>CG-004"</CategoryID>
+      <CategoryID>CG-004</CategoryID>
       <ProducerID>PD-003</ProducerID>
     </Book>
     <Book>
       <BookID>BK-007</BookID>
-      <BookName>Võ Thành Luân</BookName>
+      <BookName>Tiếu Ngạo Giang Hồ</BookName>
       <BookInfo>
-        <Pages>100</Pages>
-        <Year>2010</Year>
-        <Size>
-        </Size>
+        <Pages>200</Pages>
+        <Year>1999</Year>
+        <Size>30cm x 20cm</Size>
         <Description>
         </Description>
       </BookInfo>
-      <BookPrice>1000</BookPrice>
-      <BookQuantity>100</BookQuantity>
+      <BookPrice>208800</BookPrice>
+      <BookQuantity>50</BookQuantity>
+      <BookDiscount>15</BookDiscount>
+      <AuthorID>AU-008</AuthorID>
+      <CategoryID>CG-001</CategoryID>
+      <ProducerID>PD-003</ProducerID>
+    </Book>
+    <Book>
+      <BookID>BK-008</BookID>
+      <BookName>Thiên Long Bát Bộ</BookName>
+      <BookInfo>
+        <Pages>200</Pages>
+        <Year>1999</Year>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>100000</BookPrice>
+      <BookQuantity>1</BookQuantity>
       <BookDiscount>10</BookDiscount>
-      <AuthorID>AU-001</AuthorID>
-      <CategoryID>CG-001"</CategoryID>
+      <AuthorID>AU-008</AuthorID>
+      <CategoryID>CG-001</CategoryID>
+      <ProducerID>PD-003</ProducerID>
+    </Book>
+    <Book>
+      <BookID>BK-009</BookID>
+      <BookName>Lộc Đỉnh Ký</BookName>
+      <BookInfo>
+        <Pages>200</Pages>
+        <Year>1999</Year>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>2000</BookPrice>
+      <BookQuantity>200</BookQuantity>
+      <BookDiscount>10</BookDiscount>
+      <AuthorID>AU-008</AuthorID>
+      <CategoryID>CG-001</CategoryID>
+      <ProducerID>PD-003</ProducerID>
+    </Book>
+    <Book>
+      <BookID>BK-010</BookID>
+      <BookName>Thần Điêu Đại Hiệp</BookName>
+      <BookInfo>
+        <Pages>300</Pages>
+        <Year>1999</Year>
+        <Size>30cm x 20cm</Size>
+        <Description>
+        </Description>
+      </BookInfo>
+      <BookPrice>3000</BookPrice>
+      <BookQuantity>1</BookQuantity>
+      <BookDiscount>15</BookDiscount>
+      <AuthorID>AU-008</AuthorID>
+      <CategoryID>CG-001</CategoryID>
       <ProducerID>PD-001</ProducerID>
     </Book>
   </Books>
@@ -283,6 +362,26 @@
       <OrderStatus>Chờ duyệt</OrderStatus>
       <CustomerID>CS-001</CustomerID>
     </Order>
+    <Order>
+      <OrderID>OD-003</OrderID>
+      <OrderDetail>
+        <Detail>
+          <BookID>BK-002</BookID>
+          <Quantity>2</Quantity>
+        </Detail>
+        <Detail>
+          <BookID>BK-003</BookID>
+          <Quantity>2</Quantity>
+        </Detail>
+        <Detail>
+          <BookID>BK-004</BookID>
+          <Quantity>2</Quantity>
+        </Detail>
+      </OrderDetail>
+      <OrderDate>22/06/2020 9:43:42 AM</OrderDate>
+      <OrderStatus>Chờ duyệt</OrderStatus>
+      <CustomerID>CS-001</CustomerID>
+    </Order>
   </Orders>
   <Customers>
     <Customer>
@@ -293,7 +392,7 @@
       <Cart>
         <CartItem>
           <BookID>BK-002</BookID>
-          <Quantity>1</Quantity>
+          <Quantity>2</Quantity>
         </CartItem>
       </Cart>
       <UserID>US-002</UserID>

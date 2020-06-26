@@ -18,9 +18,13 @@
         <h1 class="page-title"> Quản lý Nhà Xuất Bản</h1>
         <div class="grid-view-container">
             <asp:GridView ID="grdNhaXuatBan" runat="server" CssClass="grid-view"
-                OnSelectedIndexChanged="grdNhaXuatBan_SelectedIndexChanged" CellPadding="5">
+                OnSelectedIndexChanged="grdNhaXuatBan_SelectedIndexChanged"
+                AllowPaging="true"
+                PageSize="7"
+                HeaderStyle-CssClass="grid-view-header"
+                RowStyle-CssClass="grid-view-row" OnPageIndexChanging="grdNhaXuatBan_PageIndexChanging">
                 <Columns>
-                    <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
+                    <asp:CommandField ShowSelectButton="True" SelectText="Xem chi tiết" />
                 </Columns>
             </asp:GridView>
         </div>

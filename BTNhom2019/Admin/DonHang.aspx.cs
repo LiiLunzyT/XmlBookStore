@@ -34,5 +34,11 @@ namespace BTNhom2019.Admin
         {
             bindData();
         }
+
+        protected void grdDonHang_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdDonHang.PageIndex = e.NewPageIndex;
+            bindData();
+        }
     }
 }

@@ -13,10 +13,22 @@
     <h1 class="page-title"> Quản lý Thể loại</h1>
         <div class="grid-view-container">
             <asp:GridView ID="grdTheLoai" runat="server" CssClass="grid-view"
-                OnSelectedIndexChanged="grdTheLoai_SelectedIndexChanged" HorizontalAlign="Center">
+                OnSelectedIndexChanged="grdTheLoai_SelectedIndexChanged"
+                AllowPaging="True"
+                PageSize="7"
+                OnPageIndexChanging="grdTheLoai_PageIndexChanging"
+                HeaderStyle-CssClass="grid-view-header"
+                RowStyle-CssClass="grid-view-row"
+                HorizontalAlign="Center">
                 <Columns>
-                <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
+                <asp:CommandField ShowSelectButton="True" SelectText="Xem chi tiết" />
                 </Columns>
+
+<HeaderStyle CssClass="grid-view-header"></HeaderStyle>
+
+                <PagerSettings FirstPageText="Trang đầu" LastPageText="Trang cuối" Mode="NumericFirstLast" PageButtonCount="5" />
+
+<RowStyle CssClass="grid-view-row"></RowStyle>
             </asp:GridView>
         </div>
         <div class="edit-box box-theloai">

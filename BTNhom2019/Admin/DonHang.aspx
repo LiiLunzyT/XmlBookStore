@@ -14,9 +14,14 @@
             <asp:ListItem Value="Đã duyệt">Đã duyệt</asp:ListItem>
         </asp:DropDownList>&nbsp;</div>
     <div class="grid-view-container">
-        <asp:GridView ID="grdDonHang" runat="server" CssClass="grid-view" HorizontalAlign="Center">
+        <asp:GridView ID="grdDonHang" runat="server"
+            CssClass="grid-view"
+            AllowPaging="true"
+            PageSize="7"
+            HeaderStyle-CssClass="grid-view-header"
+            RowStyle-CssClass="grid-view-row" OnPageIndexChanging="grdDonHang_PageIndexChanging">
             <Columns>
-                <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
+                <asp:CommandField SelectText="Xem chi tiết" ShowSelectButton="True" />
             </Columns>
         </asp:GridView>
     </div>

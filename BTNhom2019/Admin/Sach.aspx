@@ -10,11 +10,15 @@
 <asp:Content ContentPlaceHolderID="Content" runat="server">
     <h1 class="page-title">Quản lý Sách</h1>
     <div class="grid-view-container">
-        <asp:GridView ID="grdSach" runat="server" CssClass="grid-view"
+        <asp:GridView ID="grdSach" runat="server"
+            CssClass="grid-view"
             OnSelectedIndexChanged="grdSach_SelectedIndexChanged"
-            HorizontalAlign="Center">
+            AllowPaging="true"
+            PageSize="7"
+            HeaderStyle-CssClass="grid-view-header"
+            RowStyle-CssClass="grid-view-row" OnPageIndexChanging="grdSach_PageIndexChanging">
             <Columns>
-                <asp:CommandField InsertText="Chọn" ShowSelectButton="True" />
+                <asp:CommandField ShowSelectButton="True" SelectText="Xem chi tiết" />
             </Columns>
         </asp:GridView>
     </div>
