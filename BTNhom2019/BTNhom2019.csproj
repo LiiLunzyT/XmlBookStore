@@ -112,7 +112,6 @@
     <Content Include="Admin\Sach.aspx" />
     <Content Include="Admin\TacGia.aspx" />
     <Content Include="Admin\TheLoai.aspx" />
-    <Content Include="Admin\ThongKe.aspx" />
     <Content Include="App_Data\BookStore.xml" />
     <Content Include="Content\AdminSite.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -134,7 +133,16 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Admin\AdminLayout.Master" />
     <Content Include="Images\alt_img.png" />
+    <Content Include="Images\arches.png" />
     <Content Include="Images\BK-001.png" />
+    <Content Include="Images\BK-002.png" />
+    <Content Include="Images\BK-003.png" />
+    <Content Include="Images\BK-004.png" />
+    <Content Include="Images\BK-005.png" />
+    <Content Include="Images\BK-006.png" />
+    <Content Include="Images\BK-007.png" />
+    <Content Include="Images\BK-008.png" />
+    <Content Include="Images\BK-009.png" />
     <Content Include="KhachHang\DangNhap.aspx" />
     <Content Include="KhachHang\ThanhToan.aspx" />
     <Content Include="KhachHang\TrangChu.aspx" />
@@ -234,13 +242,6 @@
     </Compile>
     <Compile Include="Admin\TheLoai.aspx.designer.cs">
       <DependentUpon>TheLoai.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ThongKe.aspx.cs">
-      <DependentUpon>ThongKe.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ThongKe.aspx.designer.cs">
-      <DependentUpon>ThongKe.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

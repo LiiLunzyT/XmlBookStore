@@ -192,7 +192,7 @@ namespace BTNhom2019.DAO
             foreach(Item item in list)
             {
                 Book book = new BookDAO().GetBookByID(item.BookID);
-                sum += book.BookPrice * item.Quantity;
+                sum += (book.BookPrice * (100 - book.BookDiscount)/100) * item.Quantity;
             }
             return sum;
         }

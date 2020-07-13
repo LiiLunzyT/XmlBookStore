@@ -13,6 +13,7 @@
         }
         table {
             width: 100%;
+            background-color: white;
         }
         th {
             font-size: 20px;
@@ -22,6 +23,9 @@
         }
         .total {
             align-self: flex-end;
+            font-weight: 600;
+            margin: 10px 0;
+            font-size: 20px;
         }
         .btn {
             padding: 2px;
@@ -39,9 +43,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <div class="cart-list">
-        <h1>GIỎ HÀNG CỦA BẠN</h1>
+        <p class="title">GIỎ HÀNG CỦA BẠN</p>
         <asp:Xml ID="XmlCart" runat="server"></asp:Xml>
-        <h3 class="total">Tổng cộng: <span id="Total" runat="server">0</span></h3>
+        <p class="total">Tổng cộng: <span id="Total" runat="server">0</span> VNĐ</p>
         <div class="cart-control">
             <asp:Button ID="btnRemoveCart" CssClass="btn-control" runat="server" Text="Xoá giỏ hàng" OnClick="btnRemoveCart_Click" />
             <asp:Button ID="btnSubmitCart" CssClass="btn-control" runat="server" Text="Đặt hàng" OnClick="btnSubmitCart_Click" />
@@ -59,7 +63,11 @@
             })
         }
         function btnDecreaseOnClick(BookID) {
-
+            PageMethods.set_path("ThanhToan.aspx")
+            PageMethods.BtnDecreaseOnClick(BookID, function () {
+            }, function (err) {
+                console.log(err)
+            })
         }
     </script>
 </asp:Content>

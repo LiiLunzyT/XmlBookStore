@@ -4,7 +4,7 @@
 
     <xsl:template match="/">
       <xsl:variable name="_listBook" select="//Books" />
-      <h2 style="text-align: center;">Danh sách Sản phẩm</h2>
+      <p class="title">KỆ SÁCH</p>
       <div class="listBook">
         <xsl:for-each select="$_listBook/Book">
           <div class="card-book">
@@ -26,10 +26,10 @@
                 <xsl:variable name="_price" select="BookPrice" />
                 <xsl:variable name="_discount" select="BookDiscount" />
                 <div class="first-price">
-                  <xsl:value-of select="($_price div 100) * (100 - $_discount)"/> VNĐ
+                  <xsl:value-of select="format-number((($_price div 100) * (100 - $_discount)), '###,###,###')"/> VNĐ
                 </div>
                 <div class="second-price">
-                  <xsl:value-of select="$_price"/> VNĐ
+                  <xsl:value-of select="format-number($_price, '###,###,###')"/> VNĐ
                 </div>
               </div>
             </div>

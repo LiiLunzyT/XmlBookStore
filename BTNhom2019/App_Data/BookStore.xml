@@ -56,6 +56,20 @@
       <AuthorNickname>Tào Huyết Cần</AuthorNickname>
       <AuthorContact>Chưa có</AuthorContact>
     </Author>
+    <Author>
+      <AuthorID>AU-009</AuthorID>
+      <AuthorName>Vladimir Nabokov</AuthorName>
+      <AuthorNickname>Tào Huyết Cần</AuthorNickname>
+      <AuthorContact>
+      </AuthorContact>
+    </Author>
+    <Author>
+      <AuthorID>AU-010</AuthorID>
+      <AuthorName>Stephen Hawking</AuthorName>
+      <AuthorNickname>Tào Huyết Cần</AuthorNickname>
+      <AuthorContact>
+      </AuthorContact>
+    </Author>
   </Authors>
   <Producers>
     <Producer>
@@ -270,7 +284,7 @@
     </Book>
     <Book>
       <BookID>BK-007</BookID>
-      <BookName>Tiếu Ngạo Giang Hồ</BookName>
+      <BookName>Lolita</BookName>
       <BookInfo>
         <Pages>200</Pages>
         <Year>1999</Year>
@@ -281,13 +295,13 @@
       <BookPrice>208800</BookPrice>
       <BookQuantity>50</BookQuantity>
       <BookDiscount>15</BookDiscount>
-      <AuthorID>AU-008</AuthorID>
+      <AuthorID>AU-009</AuthorID>
       <CategoryID>CG-001</CategoryID>
-      <ProducerID>PD-003</ProducerID>
+      <ProducerID>PD-006</ProducerID>
     </Book>
     <Book>
       <BookID>BK-008</BookID>
-      <BookName>Thiên Long Bát Bộ</BookName>
+      <BookName>Hố Đen Vũ Trụ</BookName>
       <BookInfo>
         <Pages>200</Pages>
         <Year>1999</Year>
@@ -298,7 +312,7 @@
       <BookPrice>100000</BookPrice>
       <BookQuantity>1</BookQuantity>
       <BookDiscount>10</BookDiscount>
-      <AuthorID>AU-008</AuthorID>
+      <AuthorID>AU-010</AuthorID>
       <CategoryID>CG-001</CategoryID>
       <ProducerID>PD-003</ProducerID>
     </Book>
@@ -319,23 +333,6 @@
       <CategoryID>CG-001</CategoryID>
       <ProducerID>PD-003</ProducerID>
     </Book>
-    <Book>
-      <BookID>BK-010</BookID>
-      <BookName>Thần Điêu Đại Hiệp</BookName>
-      <BookInfo>
-        <Pages>300</Pages>
-        <Year>1999</Year>
-        <Size>30cm x 20cm</Size>
-        <Description>
-        </Description>
-      </BookInfo>
-      <BookPrice>3000</BookPrice>
-      <BookQuantity>1</BookQuantity>
-      <BookDiscount>15</BookDiscount>
-      <AuthorID>AU-008</AuthorID>
-      <CategoryID>CG-001</CategoryID>
-      <ProducerID>PD-001</ProducerID>
-    </Book>
   </Books>
   <Orders>
     <Order>
@@ -347,7 +344,7 @@
         </Detail>
       </OrderDetail>
       <OrderDate>20/06/2020 12:16:45 PM</OrderDate>
-      <OrderStatus>Chờ duyệt</OrderStatus>
+      <OrderStatus>Đã duyệt</OrderStatus>
       <CustomerID>CS-001</CustomerID>
     </Order>
     <Order>
@@ -359,7 +356,7 @@
         </Detail>
       </OrderDetail>
       <OrderDate>20/06/2020 12:18:17 PM</OrderDate>
-      <OrderStatus>Chờ duyệt</OrderStatus>
+      <OrderStatus>Đã duyệt</OrderStatus>
       <CustomerID>CS-001</CustomerID>
     </Order>
     <Order>
@@ -379,6 +376,48 @@
         </Detail>
       </OrderDetail>
       <OrderDate>22/06/2020 9:43:42 AM</OrderDate>
+      <OrderStatus>Đã duyệt</OrderStatus>
+      <CustomerID>CS-001</CustomerID>
+    </Order>
+    <Order>
+      <OrderID>OD-004</OrderID>
+      <OrderDetail>
+        <Detail>
+          <BookID>BK-002</BookID>
+          <Quantity>3</Quantity>
+        </Detail>
+        <Detail>
+          <BookID>BK-001</BookID>
+          <Quantity>1</Quantity>
+        </Detail>
+      </OrderDetail>
+      <OrderDate>29/06/2020 9:52:25 AM</OrderDate>
+      <OrderStatus>Đã duyệt</OrderStatus>
+      <CustomerID>CS-001</CustomerID>
+    </Order>
+    <Order>
+      <OrderID>OD-005</OrderID>
+      <OrderDetail>
+        <Detail>
+          <BookID>BK-002</BookID>
+          <Quantity>6</Quantity>
+        </Detail>
+      </OrderDetail>
+      <OrderDate>13/07/2020 2:52:20 PM</OrderDate>
+      <OrderStatus>Chờ duyệt</OrderStatus>
+      <CustomerID>CS-001</CustomerID>
+    </Order>
+    <Order>
+      <OrderID>OD-006</OrderID>
+      <OrderDetail />
+      <OrderDate>13/07/2020 2:52:20 PM</OrderDate>
+      <OrderStatus>Chờ duyệt</OrderStatus>
+      <CustomerID>CS-001</CustomerID>
+    </Order>
+    <Order>
+      <OrderID>OD-007</OrderID>
+      <OrderDetail />
+      <OrderDate>13/07/2020 2:52:39 PM</OrderDate>
       <OrderStatus>Chờ duyệt</OrderStatus>
       <CustomerID>CS-001</CustomerID>
     </Order>
@@ -392,7 +431,7 @@
       <Cart>
         <CartItem>
           <BookID>BK-002</BookID>
-          <Quantity>2</Quantity>
+          <Quantity>1</Quantity>
         </CartItem>
       </Cart>
       <UserID>US-002</UserID>

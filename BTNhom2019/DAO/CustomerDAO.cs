@@ -102,6 +102,28 @@ namespace BTNhom2019.DAO
             Save();
             return GetCustomerByCustomerID(CustomerID);
         }
+
+        public Customer RemoveItemFromCart(String CustomerID, String BookID)
+        {
+            XmlNode nCustomer = root.SelectSingleNode("Customer[CustomerID = '" + CustomerID + "']");
+            XmlNode nCart = nCustomer["Cart"];
+            foreach (XmlNode nItem in nCart.ChildNodes)
+            {
+                if (nItem["BookID"].InnerText == BookID)
+                {
+                    if(nItem["Quantity"].InnerText == "1")
+                    {
+
+                    } else
+                    {
+                        nItem["Quantity"].InnerText = (int.Parse(nItem["Quantity"].InnerText) - 1).ToString();
+                    }
+                }
+            }
+            Save();
+            return GetCustomerByCustomerID(CustomerID);
+        }
+
         public void EmptyCart(String CustomerID)
         {
             XmlNode nCustomer = root.SelectSingleNode("Customer[CustomerID = '" + CustomerID + "']");

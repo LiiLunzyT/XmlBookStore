@@ -32,7 +32,8 @@
 						<xsl:value-of select="format-number($_Book/BookPrice, '###,###,###')"/>
 					</td>
 					<td style="text-align: right">
-						<xsl:value-of select="format-number($_Book/BookPrice * Quantity, '###,###,###')"/>
+            <xsl:variable name="_price" select="($_Book/BookPrice div 100) * (100 - $_Book/BookDiscount)"/>
+						<xsl:value-of select="format-number($_price * Quantity, '###,###,###')"/>
 						VNĐ
 					</td>
 				</tr>

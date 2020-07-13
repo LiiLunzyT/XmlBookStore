@@ -59,6 +59,17 @@ namespace BTNhom2019.KhachHang
             dao.AddNewItemToCart(customer.CustomerID, BookID);
         }
 
+        [WebMethod]
+        public static void BtnDecreaseOnClick(String BookID)
+        {
+            CustomerDAO dao = new CustomerDAO();
+
+            String UserID = HttpContext.Current.Session["ID"].ToString();
+            Customer customer = dao.GetCustomerByUserID(UserID);
+
+            dao.RemoveItemFromCart(customer.CustomerID, BookID);
+        }
+
         protected void btnRemoveCart_Click(object sender, EventArgs e)
         {
 
